@@ -1,0 +1,15 @@
+C:\CustomProject\TheRookies_6\Dotnet\DAY01\bin\Debug\net6.0\DAY01.exe
+C:\CustomProject\TheRookies_6\Dotnet\DAY01\bin\Debug\net6.0\DAY01.deps.json
+C:\CustomProject\TheRookies_6\Dotnet\DAY01\bin\Debug\net6.0\DAY01.runtimeconfig.json
+C:\CustomProject\TheRookies_6\Dotnet\DAY01\bin\Debug\net6.0\DAY01.dll
+C:\CustomProject\TheRookies_6\Dotnet\DAY01\bin\Debug\net6.0\DAY01.pdb
+C:\CustomProject\TheRookies_6\Dotnet\DAY01\obj\Debug\net6.0\DAY01.csproj.AssemblyReference.cache
+C:\CustomProject\TheRookies_6\Dotnet\DAY01\obj\Debug\net6.0\DAY01.GeneratedMSBuildEditorConfig.editorconfig
+C:\CustomProject\TheRookies_6\Dotnet\DAY01\obj\Debug\net6.0\DAY01.AssemblyInfoInputs.cache
+C:\CustomProject\TheRookies_6\Dotnet\DAY01\obj\Debug\net6.0\DAY01.AssemblyInfo.cs
+C:\CustomProject\TheRookies_6\Dotnet\DAY01\obj\Debug\net6.0\DAY01.csproj.CoreCompileInputs.cache
+C:\CustomProject\TheRookies_6\Dotnet\DAY01\obj\Debug\net6.0\DAY01.dll
+C:\CustomProject\TheRookies_6\Dotnet\DAY01\obj\Debug\net6.0\refint\DAY01.dll
+C:\CustomProject\TheRookies_6\Dotnet\DAY01\obj\Debug\net6.0\DAY01.pdb
+C:\CustomProject\TheRookies_6\Dotnet\DAY01\obj\Debug\net6.0\DAY01.genruntimeconfig.cache
+C:\CustomProject\TheRookies_6\Dotnet\DAY01\obj\Debug\net6.0\ref\DAY01.dll
