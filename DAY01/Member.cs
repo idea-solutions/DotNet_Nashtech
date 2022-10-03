@@ -18,18 +18,28 @@ namespace Day01
             }
         }
 
+        public string FullName
+        {
+            get
+            {
+                return FirstName + " " + LastName;
+            }
+        }
+
         public string InfoMember
         {
             get
             {
+                string gradute = IsGraduated ? "Yes" : "No";
+
                 return string.Format($"First Name: {FirstName}" + Environment.NewLine +
                 $"Last Name: {LastName}" + Environment.NewLine +
                 $"Gender: {Gender}" + Environment.NewLine +
-                $"Date Of Birth: {DateOfBirth}" + Environment.NewLine +
+                $"Date Of Birth: {DateOfBirth.ToString("dd/MM/yyyy")}" + Environment.NewLine +
                 $"Phone Number: {PhoneNumber}" + Environment.NewLine +
                 $"Birth Place: {BirthPlace}" + Environment.NewLine +
                 $"Age: {Age}" + Environment.NewLine +
-                $"Is Graduated: {IsGraduated}");
+                $"Is Graduated: {gradute}");
             }
         }
 
