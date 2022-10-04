@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\CustomProject\\TheRookies_6\\Dotnet\\day02\\DAY02.csproj": {}
+    "C:\\CustomProject\\TheRookies_6\\Dotnet\\DAY02\\DAY02.csproj": {}
   },
   "projects": {
-    "C:\\CustomProject\\TheRookies_6\\Dotnet\\day02\\DAY02.csproj": {
+    "C:\\CustomProject\\TheRookies_6\\Dotnet\\DAY02\\DAY02.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\CustomProject\\TheRookies_6\\Dotnet\\day02\\DAY02.csproj",
+        "projectUniqueName": "C:\\CustomProject\\TheRookies_6\\Dotnet\\DAY02\\DAY02.csproj",
         "projectName": "DAY02",
-        "projectPath": "C:\\CustomProject\\TheRookies_6\\Dotnet\\day02\\DAY02.csproj",
+        "projectPath": "C:\\CustomProject\\TheRookies_6\\Dotnet\\DAY02\\DAY02.csproj",
         "packagesPath": "C:\\Users\\22nvh\\.nuget\\packages\\",
-        "outputPath": "C:\\CustomProject\\TheRookies_6\\Dotnet\\day02\\obj\\",
+        "outputPath": "C:\\CustomProject\\TheRookies_6\\Dotnet\\DAY02\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\22nvh\\AppData\\Roaming\\NuGet\\NuGet.Config"

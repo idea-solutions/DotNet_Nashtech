@@ -35,7 +35,7 @@
                 }
             };
 
-            var option = "";
+            int option = 0;
             do
             {
                 Console.WriteLine("--------------------------------------");
@@ -44,36 +44,31 @@
                 Console.WriteLine("3. Full name of members: ");
                 Console.WriteLine("4. List members by birth year: ");
                 Console.WriteLine("5. First person who was born in Ha Noi is: ");
-                Console.WriteLine("6. Exit");
                 Console.WriteLine();
                 Console.Write("Enter key: ");
-                option = Console.ReadLine();
+                option = Convert.ToInt32(Console.ReadLine());
 
                 switch (option)
                 {
-                    case "1":
+                    case 1:
                         ListMale(members);
                         break;
-                    case "2":
+                    case 2:
                         OldestMember(members);
                         break;
-                    case "3":
+                    case 3:
                         ListFullNameMember(members);
                         break;
-                    case "4":
+                    case 4:
                         ListMembersByBirthYear(members);
                         break;
-                    case "5":
+                    case 5:
                         BornInHaNoi(members);
                         break;
-                    case "6":
-                        break;
                     default:
-                        Console.WriteLine("Wrong choice, please choose again!!");
-                        Console.WriteLine();
                         break;
                 }
-            } while (option != "6");
+            } while (option > 0 && option < 6);
         }
 
         public static void ListMale(List<Member> members)
@@ -155,7 +150,7 @@
                 }
             }
 
-            var option = "";
+            int option = 0;
             do
             {
                 Console.WriteLine("--------------------------------------");
@@ -165,30 +160,26 @@
                 Console.WriteLine("4: Exit");
                 Console.WriteLine();
                 Console.WriteLine("Enter key: ");
-                option = Console.ReadLine();
+                option = Convert.ToInt32(Console.ReadLine());
 
                 switch (option)
                 {
-                    case "1":
+                    case 1:
                         Console.WriteLine("\nList member birth year is 2000: ");
                         PrintMembers(listYear2000);
                         break;
-                    case "2":
+                    case 2:
                         Console.WriteLine("\nList member birth year less 2000: ");
                         PrintMembers(listYearLess2000);
                         break;
-                    case "3":
+                    case 3:
                         Console.WriteLine("\nList member birth year more 2000: ");
                         PrintMembers(listYearGreaterThan2000);
                         break;
-                    case "4":
-                        break;
                     default:
-                        Console.WriteLine("Wrong choice, please choose again!!");
-                        Console.WriteLine();
                         break;
                 }
-            } while (option != "4");
+            } while (option > 0 && option < 4);
         }
         public static void BornInHaNoi(List<Member> members)
         {

@@ -32,14 +32,14 @@ namespace Day01
             {
                 string gradute = IsGraduated ? "Yes" : "No";
 
-                return string.Format($"First Name: {FirstName}" + Environment.NewLine +
-                $"Last Name: {LastName}" + Environment.NewLine +
-                $"Gender: {Gender}" + Environment.NewLine +
-                $"Date Of Birth: {DateOfBirth.ToString("dd/MM/yyyy")}" + Environment.NewLine +
-                $"Phone Number: {PhoneNumber}" + Environment.NewLine +
-                $"Birth Place: {BirthPlace}" + Environment.NewLine +
-                $"Age: {Age}" + Environment.NewLine +
-                $"Is Graduated: {gradute}");
+                return string.Format($"First Name: {FirstName}\n\r" +
+                $"Last Name: {LastName}\n\r" +
+                $"Gender: {Gender}\n\r" +
+                $"Date Of Birth: {DateOfBirth.ToString("dd/MM/yyyy")}\n\r" +
+                $"Phone Number: {PhoneNumber}\n\r" +
+                $"Birth Place: {BirthPlace}\n\r" +
+                $"Age: {Age}\n\r" +
+                $"Is Graduated: {gradute}\n\r");
             }
         }
     }
