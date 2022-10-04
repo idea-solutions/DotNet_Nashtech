@@ -42,6 +42,5 @@ namespace Day02
                 $"Is Graduated: {gradute}");
             }
         }
-
     }
 }

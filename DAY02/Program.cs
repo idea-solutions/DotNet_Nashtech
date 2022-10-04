@@ -4,7 +4,6 @@
     {
         static void Main(string[] agrs)
         {
-
             // List members
             List<Member> members = new List<Member> {
                 new Member{
@@ -79,23 +78,32 @@
 
         public static void ListMale(List<Member> members)
         {
-            Console.WriteLine("List of member who is male is: " + Environment.NewLine);
+            Console.WriteLine("List of member who is male is: ");
+            Console.WriteLine();
+
             members.Where(member => member.Gender == "Male")
-                                                  .ToList()
-                                                  .ForEach(m => Console.WriteLine(m.InfoMember + Environment.NewLine));
+                   .ToList()
+                   .ForEach(m => Console.WriteLine(m.InfoMember + Environment.NewLine));
         }
 
         public static void OldestMember(List<Member> members)
         {
-            Console.WriteLine($"Info member with oldest age is: " + Environment.NewLine);
+            Console.WriteLine($"Info member with oldest age is: ");
+            Console.WriteLine();
+
             var maxAge = members.Max(member => member.Age);
             Member oldestMember = members.First(m => m.Age == maxAge);
-            Console.WriteLine(oldestMember.InfoMember + Environment.NewLine);
+
+            Console.WriteLine(oldestMember.InfoMember);
+            Console.WriteLine();
+
         }
 
         public static void ListFullNameMember(List<Member> members)
         {
-            Console.WriteLine("Full Name of members: " + Environment.NewLine);
+            Console.WriteLine("Full Name of members: ");
+            Console.WriteLine();
+
             var fullName = members.Select(member => member.FullName).ToList();
             fullName.ForEach(mem => Console.WriteLine(mem));
         }
@@ -107,7 +115,9 @@
             var listYearLess2000 = members.FindAll(member => member.DateOfBirth.Year > 2000);
             var option = "";
 
-            Console.WriteLine("List members by birth year: " + Environment.NewLine);
+            Console.WriteLine("List members by birth year: ");
+            Console.WriteLine();
+
             do
             {
                 Console.WriteLine("--------------------------------------");
@@ -118,6 +128,7 @@
                 Console.WriteLine();
                 Console.WriteLine("Enter key: ");
                 option = Console.ReadLine();
+
                 switch (option)
                 {
                     case "1":
@@ -125,11 +136,11 @@
                         PrintMembers(listYear2000);
                         break;
                     case "2":
-                        Console.WriteLine("\nList member birth year less 2000:");
+                        Console.WriteLine("\nList member birth year less 2000: ");
                         PrintMembers(listYearLess2000);
                         break;
                     case "3":
-                        Console.WriteLine("\nList member birth year more 2000:");
+                        Console.WriteLine("\nList member birth year more 2000: ");
                         PrintMembers(listYearGreaterThan2000);
                         break;
                     case "4":
@@ -157,7 +168,8 @@
         {
             foreach (Member member in members)
             {
-                Console.WriteLine(member.InfoMember + Environment.NewLine);
+                Console.WriteLine(member.InfoMember);
+                Console.WriteLine();
             }
         }
     }
