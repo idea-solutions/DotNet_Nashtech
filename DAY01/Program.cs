@@ -4,7 +4,6 @@
     {
         static void Main(string[] agrs)
         {
-
             // List members
             List<Member> members = new List<Member> {
                 new Member{
@@ -80,7 +79,8 @@
         public static void ListMale(List<Member> members)
         {
             List<Member> ListMale = new List<Member>();
-            Console.WriteLine("List of member who is male is: " + Environment.NewLine);
+            Console.WriteLine("List of member who is male is: ");
+            Console.WriteLine();
 
             foreach (Member member in members)
             {
@@ -110,8 +110,10 @@
             {
                 if (member.Age == maxAge)
                 {
-                    Console.WriteLine($"Info member with oldest age is: " + Environment.NewLine);
-                    Console.WriteLine(member.InfoMember + Environment.NewLine);
+                    Console.WriteLine($"Info member with oldest age is: ");
+                    Console.WriteLine();
+                    Console.WriteLine(member.InfoMember);
+                    Console.WriteLine();
                     break;
                 }
             }
@@ -119,7 +121,8 @@
 
         public static void ListFullNameMember(List<Member> members)
         {
-            Console.WriteLine("Full Name of members: " + Environment.NewLine);
+            Console.WriteLine("Full Name of members: ");
+            Console.WriteLine();
 
             foreach (Member member in members)
             {
@@ -133,7 +136,9 @@
             List<Member> listYearGreaterThan2000 = new List<Member>();
             List<Member> listYearLess2000 = new List<Member>();
 
-            Console.WriteLine("List members by birth year: " + Environment.NewLine);
+            Console.WriteLine("List members by birth year: ");
+            Console.WriteLine();
+
             foreach (Member member in members)
             {
                 switch (member.DateOfBirth.Year)
@@ -161,18 +166,19 @@
                 Console.WriteLine();
                 Console.WriteLine("Enter key: ");
                 option = Console.ReadLine();
+
                 switch (option)
                 {
                     case "1":
-                        Console.WriteLine("\nList member birth year is 2000 : ");
+                        Console.WriteLine("\nList member birth year is 2000: ");
                         PrintMembers(listYear2000);
                         break;
                     case "2":
-                        Console.WriteLine("\nList member birth year less 2000 :");
+                        Console.WriteLine("\nList member birth year less 2000: ");
                         PrintMembers(listYearLess2000);
                         break;
                     case "3":
-                        Console.WriteLine("\nList member birth year more 2000 :");
+                        Console.WriteLine("\nList member birth year more 2000: ");
                         PrintMembers(listYearGreaterThan2000);
                         break;
                     case "4":
@@ -183,7 +189,6 @@
                         break;
                 }
             } while (option != "4");
-
         }
         public static void BornInHaNoi(List<Member> members)
         {
@@ -204,7 +209,8 @@
         {
             foreach (Member member in members)
             {
-                Console.WriteLine(member.InfoMember + Environment.NewLine);
+                Console.WriteLine(member.InfoMember);
+                Console.WriteLine();
             }
         }
     }
