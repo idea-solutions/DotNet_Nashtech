@@ -1,0 +1,15 @@
+C:\CustomProject\TheRookies_6\Dotnet\DAY03\DAY03_Asynchronous\bin\Debug\net6.0\DAY03_Asynchronous.exe
+C:\CustomProject\TheRookies_6\Dotnet\DAY03\DAY03_Asynchronous\bin\Debug\net6.0\DAY03_Asynchronous.deps.json
+C:\CustomProject\TheRookies_6\Dotnet\DAY03\DAY03_Asynchronous\bin\Debug\net6.0\DAY03_Asynchronous.runtimeconfig.json
+C:\CustomProject\TheRookies_6\Dotnet\DAY03\DAY03_Asynchronous\bin\Debug\net6.0\DAY03_Asynchronous.dll
+C:\CustomProject\TheRookies_6\Dotnet\DAY03\DAY03_Asynchronous\bin\Debug\net6.0\DAY03_Asynchronous.pdb
+C:\CustomProject\TheRookies_6\Dotnet\DAY03\DAY03_Asynchronous\obj\Debug\net6.0\DAY03_Asynchronous.csproj.AssemblyReference.cache
+C:\CustomProject\TheRookies_6\Dotnet\DAY03\DAY03_Asynchronous\obj\Debug\net6.0\DAY03_Asynchronous.GeneratedMSBuildEditorConfig.editorconfig
+C:\CustomProject\TheRookies_6\Dotnet\DAY03\DAY03_Asynchronous\obj\Debug\net6.0\DAY03_Asynchronous.AssemblyInfoInputs.cache
+C:\CustomProject\TheRookies_6\Dotnet\DAY03\DAY03_Asynchronous\obj\Debug\net6.0\DAY03_Asynchronous.AssemblyInfo.cs
+C:\CustomProject\TheRookies_6\Dotnet\DAY03\DAY03_Asynchronous\obj\Debug\net6.0\DAY03_Asynchronous.csproj.CoreCompileInputs.cache
+C:\CustomProject\TheRookies_6\Dotnet\DAY03\DAY03_Asynchronous\obj\Debug\net6.0\DAY03_Asynchronous.dll
+C:\CustomProject\TheRookies_6\Dotnet\DAY03\DAY03_Asynchronous\obj\Debug\net6.0\refint\DAY03_Asynchronous.dll
+C:\CustomProject\TheRookies_6\Dotnet\DAY03\DAY03_Asynchronous\obj\Debug\net6.0\DAY03_Asynchronous.pdb
+C:\CustomProject\TheRookies_6\Dotnet\DAY03\DAY03_Asynchronous\obj\Debug\net6.0\DAY03_Asynchronous.genruntimeconfig.cache
+C:\CustomProject\TheRookies_6\Dotnet\DAY03\DAY03_Asynchronous\obj\Debug\net6.0\ref\DAY03_Asynchronous.dll
