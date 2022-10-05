@@ -1,0 +1,15 @@
+C:\CustomProject\TheRookies_6\Dotnet\DAY03\DAY03_DelegateEvent\bin\Debug\net6.0\DAY03_DelegateEvent.exe
+C:\CustomProject\TheRookies_6\Dotnet\DAY03\DAY03_DelegateEvent\bin\Debug\net6.0\DAY03_DelegateEvent.deps.json
+C:\CustomProject\TheRookies_6\Dotnet\DAY03\DAY03_DelegateEvent\bin\Debug\net6.0\DAY03_DelegateEvent.runtimeconfig.json
+C:\CustomProject\TheRookies_6\Dotnet\DAY03\DAY03_DelegateEvent\bin\Debug\net6.0\DAY03_DelegateEvent.dll
+C:\CustomProject\TheRookies_6\Dotnet\DAY03\DAY03_DelegateEvent\bin\Debug\net6.0\DAY03_DelegateEvent.pdb
+C:\CustomProject\TheRookies_6\Dotnet\DAY03\DAY03_DelegateEvent\obj\Debug\net6.0\DAY03_DelegateEvent.csproj.AssemblyReference.cache
+C:\CustomProject\TheRookies_6\Dotnet\DAY03\DAY03_DelegateEvent\obj\Debug\net6.0\DAY03_DelegateEvent.GeneratedMSBuildEditorConfig.editorconfig
+C:\CustomProject\TheRookies_6\Dotnet\DAY03\DAY03_DelegateEvent\obj\Debug\net6.0\DAY03_DelegateEvent.AssemblyInfoInputs.cache
+C:\CustomProject\TheRookies_6\Dotnet\DAY03\DAY03_DelegateEvent\obj\Debug\net6.0\DAY03_DelegateEvent.AssemblyInfo.cs
+C:\CustomProject\TheRookies_6\Dotnet\DAY03\DAY03_DelegateEvent\obj\Debug\net6.0\DAY03_DelegateEvent.csproj.CoreCompileInputs.cache
+C:\CustomProject\TheRookies_6\Dotnet\DAY03\DAY03_DelegateEvent\obj\Debug\net6.0\DAY03_DelegateEvent.dll
+C:\CustomProject\TheRookies_6\Dotnet\DAY03\DAY03_DelegateEvent\obj\Debug\net6.0\refint\DAY03_DelegateEvent.dll
+C:\CustomProject\TheRookies_6\Dotnet\DAY03\DAY03_DelegateEvent\obj\Debug\net6.0\DAY03_DelegateEvent.pdb
+C:\CustomProject\TheRookies_6\Dotnet\DAY03\DAY03_DelegateEvent\obj\Debug\net6.0\DAY03_DelegateEvent.genruntimeconfig.cache
+C:\CustomProject\TheRookies_6\Dotnet\DAY03\DAY03_DelegateEvent\obj\Debug\net6.0\ref\DAY03_DelegateEvent.dll
