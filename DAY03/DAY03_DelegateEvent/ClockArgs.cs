@@ -1,8 +1,8 @@
 namespace DelegateEvent
 {
-    public class MyEventArgs : EventArgs
+    public class ClockArgs : EventArgs
     {
-        public MyEventArgs(int hour, int minute, int second)
+        public ClockArgs(int hour, int minute, int second)
         {
             this.hour = hour;
             this.minute = minute;
