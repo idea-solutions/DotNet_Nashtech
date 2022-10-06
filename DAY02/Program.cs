@@ -91,7 +91,6 @@
 
             Console.WriteLine(oldestMember.InfoMember);
             Console.WriteLine();
-
         }
 
         public static void ListFullNameMember(List<Member> members)
@@ -99,8 +98,8 @@
             Console.WriteLine("Full Name of members: ");
             Console.WriteLine();
 
-            var fullName = members.Select(member => member.FullName).ToList();
-            fullName.ForEach(mem => Console.WriteLine(mem));
+            var fullNames = members.Select(member => member.FullName).ToList();
+            fullNames.ForEach(mem => Console.WriteLine(mem));
         }
 
         public static void ListMembersByBirthYear(List<Member> members)
@@ -142,17 +141,13 @@
                         break;
                 }
             } while (option > 0 && option < 4);
-
         }
+
         public static void BornInHaNoi(List<Member> members)
         {
             Console.WriteLine("The first person who was born in Ha Noi is: ");
-            var member = members.FindAll(m => m.BirthPlace == "Ha Noi");
-
-            if (member.Count > 0)
-            {
-                Console.WriteLine(member.First().InfoMember);
-            }
+            var member = members.FirstOrDefault(m => m.BirthPlace == "Ha Noi");
+            Console.WriteLine(member?.InfoMember);
         }
 
         public static void PrintMembers(List<Member> members)
