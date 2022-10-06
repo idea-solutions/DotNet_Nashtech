@@ -5,14 +5,14 @@ namespace Asynchronous
     {
         public static void Main(string[] args)
         {
-            PrimeNumber(0, 50);
-            PrimeNumber(51, 100);
+            PrimeNumber(0, 100);
+            PrimeNumber(101, 200);
             Console.ReadKey();
         }
 
         public static async void PrimeNumber(int firstNumber, int lastNumber)
         {
-            await Task.Run(async () =>
+            await Task.Run(() =>
             {
                 int count = 0;
                 for (int i = firstNumber; i < lastNumber; i++)
@@ -31,7 +31,7 @@ namespace Asynchronous
                         if (count == 0)
                         {
                             Console.Write(i + " ");
-                            await Task.Delay(200);
+                            Task.Delay(200).Wait();
                         }
                     }
                 }
