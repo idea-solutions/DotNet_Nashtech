@@ -6,14 +6,8 @@ namespace DelegateEvent
         {
             Clock clock = new Clock();
             DisplayClock displayClock = new DisplayClock();
-
-            displayClock.Sub(clock);
-
-            while (!Console.KeyAvailable)
-            {
-                Thread.Sleep(1000);
-                clock.Send();
-            }
+            displayClock.Subcribe(clock);
+            clock.Run();
         }
     }
 }
