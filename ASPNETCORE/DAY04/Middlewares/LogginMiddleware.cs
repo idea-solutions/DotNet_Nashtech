@@ -11,7 +11,6 @@ namespace DAY04.Middlewares
 
         public async Task InvokeAsync(HttpContext context)
         {
-
             var request = context.Request;
 
             string requestInfo = $"Scheme: {request.Scheme}\n\r"
@@ -20,7 +19,7 @@ namespace DAY04.Middlewares
             + $"QueryString: {request.QueryString}\n\r"
             + $"Body: {request.Body}\n\r";
 
-            using FileStream fileStream = File.Create("requestInfo.txt");
+            using FileStream fileStream = File.Create("RequestInfo.txt");
             using var streamWriter = new StreamWriter(fileStream);
             streamWriter.WriteLine(requestInfo);
 
