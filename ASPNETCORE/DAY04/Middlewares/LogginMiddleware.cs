@@ -1,5 +1,3 @@
-using Microsoft.AspNetCore.HttpLogging;
-using System.Diagnostics;
 namespace DAY04.Middlewares
 {
     public class LogginMiddleware
