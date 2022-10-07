@@ -1,5 +1,4 @@
-﻿
-namespace Asynchronous
+﻿namespace Asynchronous
 {
     class Program
     {
@@ -15,9 +14,11 @@ namespace Asynchronous
             await Task.Run(() =>
             {
                 int count = 0;
+
                 for (int i = firstNumber; i < lastNumber; i++)
                 {
                     count = 0;
+                    
                     if (i > 1)
                     {
                         for (int j = 2; j < i; j++)
