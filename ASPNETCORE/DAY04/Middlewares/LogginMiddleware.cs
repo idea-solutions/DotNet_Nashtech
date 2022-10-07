@@ -22,9 +22,9 @@ namespace DAY04.Middlewares
             + $"QueryString: {request.QueryString}\n\r"
             + $"Body: {request.Body}\n\r";
 
-            using FileStream fs = File.Create("requestInfo.txt");
-            using var sr = new StreamWriter(fs);
-            sr.WriteLine(requestInfo);
+            using FileStream fileStream = File.Create("requestInfo.txt");
+            using var streamWriter = new StreamWriter(fileStream);
+            streamWriter.WriteLine(requestInfo);
 
             await _next(context);
         }
