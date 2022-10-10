@@ -74,8 +74,8 @@ namespace Assignment01.Controllers
             return Json(fullNames);
         }
 
-        [HttpGet("ListMembersByBirthYear?year=year?&compareType=compareType?")]
-        public IActionResult ListMembersByBirthYear(int year, string compareType)
+        [HttpGet("ListMembersByBirthYear")]
+        public IActionResult ListMembersByBirthYear([FromQuery] int year, [FromQuery] string compareType)
         {
             switch (compareType)
             {
