@@ -40,10 +40,9 @@
                 <td>
                     <a role="button" class="btn btn-primary btn-sm" asp-action="Edit" asp-route-index="@index">Edit</a>
                     <a class="btn btn-danger btn-sm text-light" type="button" role="button" data-toggle="modal"
-                    data-target="#deleteModal">Delete</a>
+                    data-target="#deleteModal_@index">Delete</a>
 
-                    <!-- Modal -->
-                <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal fade" id="deleteModal_@index" tabindex="-1" role="dialog" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <form asp-action="Delete" asp-route-index="@index" method="post">
@@ -58,7 +57,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Delete</button>
+                                        <button type="submit" class="btn btn-primary">Delete</button>
                                     </div>
                                 </form>
                             </div>

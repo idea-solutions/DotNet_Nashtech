@@ -3,7 +3,7 @@ namespace Assignment02.DataAccess
 {
     public class StaticMemberDataAccess
     {
-        private static List<Member> member = new List<Member>()
+        private static List<Member> _members = new List<Member>()
         {
              new Member{
                     FirstName = "Hoan",
@@ -34,19 +34,33 @@ namespace Assignment02.DataAccess
                 }
         };
 
+        public List<Member> Members
+        {
+            get => _members;
+            set
+            {
+                _members = value;
+            }
+        }
+
         public StaticMemberDataAccess()
         {
 
         }
 
-        public List<Member> GetListMember()
-        {
-            return member;
-        }
-
         public void AddMember(Member member)
         {
-            StaticMemberDataAccess.member.Add(member);
+            Members.Add(member);
+        }
+
+        public void UpdateMember(int index, Member member)
+        {
+            Members[index] = member;
+        }
+
+        public void DeleteMember(int index)
+        {
+            Members.RemoveAt(index);
         }
     }
 }

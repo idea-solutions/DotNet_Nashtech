@@ -66,25 +66,16 @@ namespace Assignment02.Controllers
         [HttpPost("Update")]
         public IActionResult Update(int index, EditMemberViewModel model)
         {
-            if (ModelState.IsValid)
+            // Check điều kiện return sớm...
+            if (!ModelState.IsValid)
             {
-                if (index >= 0 && index < _service.GetListMember().Count)
-                {
-                    var member = _service.GetListMember()[index];
+                return View(model);
+            }
+            if (index >= 0 && index < _service.GetListEdit().Count)
+            {
+                _service.UpdateMember(index, model);
 
-                    member.FirstName = model.FirstName;
-                    member.LastName = model.LastName;
-                    member.PhoneNumber = model.PhoneNumber;
-                    member.BirthPlace = model.BirthPlace;
-
-                    // TODO
-                    // foreach (var item in _service.GetListMember())
-                    // {
-                    //     Console.WriteLine(JsonSerializer.Serialize(item));
-                    // }
-
-                    return RedirectToAction("Index");
-                }
+                return RedirectToAction("Index");
             }
 
             return View(model);
@@ -95,12 +86,7 @@ namespace Assignment02.Controllers
         {
             if (index >= 0 && index < _service.GetListMember().Count)
             {
-                _service.GetListMember().RemoveAt(index);
-
-                foreach (var item in _service.GetListMember())
-                {
-                    Console.WriteLine(JsonSerializer.Serialize(item));
-                }
+                _service.DeleteMember(index);
             }
             return RedirectToAction("Index");
         }

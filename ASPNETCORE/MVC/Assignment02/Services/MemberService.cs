@@ -4,7 +4,7 @@ namespace Assignment02.Services
 {
     public class MemberService
     {
-        public readonly StaticMemberDataAccess _dataAccess;
+        private readonly StaticMemberDataAccess _dataAccess;
         public MemberService()
         {
             _dataAccess = new StaticMemberDataAccess();
@@ -12,7 +12,7 @@ namespace Assignment02.Services
 
         public List<MemberViewModel> GetListMember()
         {
-            var listApplicationModels = _dataAccess.GetListMember();
+            var listApplicationModels = _dataAccess.Members;
 
             var listViewModels = new List<MemberViewModel>();
             foreach (var item in listApplicationModels)
@@ -50,7 +50,7 @@ namespace Assignment02.Services
 
         public List<EditMemberViewModel> GetListEdit()
         {
-            var listApplicationModels = _dataAccess.GetListMember();
+            var listApplicationModels = _dataAccess.Members;
 
             var listViewModels = new List<EditMemberViewModel>();
             foreach (var item in listApplicationModels)
@@ -66,5 +66,24 @@ namespace Assignment02.Services
 
             return listViewModels;
         }
+
+        public void UpdateMember(int index, EditMemberViewModel model)
+        {
+            var updateMember = new Member()
+            {
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                PhoneNumber = model.PhoneNumber,
+                BirthPlace = model.BirthPlace
+            };
+
+            _dataAccess.UpdateMember(index, updateMember);
+        }
+
+        public void DeleteMember(int index)
+        {
+            _dataAccess.DeleteMember(index);
+        }
+
     }
 }
