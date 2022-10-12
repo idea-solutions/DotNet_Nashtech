@@ -3,7 +3,7 @@ namespace Assignment02.DataAccess
 {
     public class StaticMemberDataAccess
     {
-        private static List<Member> Member = new List<Member>()
+        private static List<Member> member = new List<Member>()
         {
              new Member{
                     FirstName = "Hoan",
@@ -41,12 +41,12 @@ namespace Assignment02.DataAccess
 
         public List<Member> GetListMember()
         {
-            return Member;
+            return member;
         }
 
         public void AddMember(Member member)
         {
-            Member.Add(member);
+            StaticMemberDataAccess.member.Add(member);
         }
     }
 }

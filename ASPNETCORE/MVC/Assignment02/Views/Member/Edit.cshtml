@@ -1,17 +1,19 @@
-@model Assignment02.Services.CreateMemberRequest;
+@model Assignment02.Services.EditMemberViewModel;
 
 @{
-    ViewData["Title"] = "Add new Member";
+    ViewData["Title"] = "Update Member";
+    var value = ViewData["Index"]?.ToString() ?? "";
+    var index = !string.IsNullOrEmpty(value) ? int.Parse(value) : 0;
 }
 
-<h1>This is Add New Member Page</h1>
+<h1>This is Edit Member Page</h1>
 
 <h4>Member</h4>
 <hr />
 
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create" method="post">
+        <form asp-action="Update" asp-route-index="@index" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger">
             </div>
 
@@ -28,22 +30,6 @@
             </div>
 
             <div class="form-group my-2">
-                <label asp-for="Gender" class="control-label my-1"></label>
-                <select class="form-select" asp-for="Gender">
-                    <option value="1">Male</option>
-                    <option value="2">Female</option>
-                    <option value="3">Other</option>
-                </select>
-                <span asp-validation-for="Gender" class="text-danger"></span>
-            </div>
-
-            <div class="form-group my-2">
-                <label asp-for="DateOfBirth" class="control-label my-1"></label>
-                <input asp-for="DateOfBirth" type="date" class="form-control" />
-                <span asp-validation-for="DateOfBirth" class="text-danger"></span>
-            </div>
-
-            <div class="form-group my-2">
                 <label asp-for="PhoneNumber" class="control-label my-1"></label>
                 <input asp-for="PhoneNumber" type="number" class="form-control" />
                 <span asp-validation-for="PhoneNumber" class="text-danger"></span>
@@ -56,7 +42,8 @@
             </div>
 
             <div class="form-group my-3">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Submit" class="btn btn-primary" />
+                <a type="submit" role="button" class="btn btn-secondary" asp-action="Index">Cancel</a>
             </div>
         </form>
     </div>

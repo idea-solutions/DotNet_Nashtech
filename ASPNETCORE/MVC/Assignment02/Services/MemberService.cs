@@ -19,11 +19,11 @@ namespace Assignment02.Services
             {
                 listViewModels.Add(new MemberViewModel
                 {
-                    FullName = item.FullName,
+                    FirstName = item.FirstName,
+                    LastName = item.LastName,
                     DateOfBirth = item.DateOfBirth.ToString("dd/MM/yyyy"),
                     PhoneNumber = item.PhoneNumber,
                     BirthPlace = item.BirthPlace,
-                    //Gender = 1 => Male; Gender = 2 => Female; Gender = .... => Other
                     Gender = item.Gender == 1 ? "Male" : item.Gender == 2 ? "Female" : "Other",
                     Age = item.Age,
                 });
@@ -46,6 +46,25 @@ namespace Assignment02.Services
             };
 
             _dataAccess.AddMember(member);
+        }
+
+        public List<EditMemberViewModel> GetListEdit()
+        {
+            var listApplicationModels = _dataAccess.GetListMember();
+
+            var listViewModels = new List<EditMemberViewModel>();
+            foreach (var item in listApplicationModels)
+            {
+                listViewModels.Add(new EditMemberViewModel
+                {
+                    FirstName = item.FirstName,
+                    LastName = item.LastName,
+                    PhoneNumber = item.PhoneNumber,
+                    BirthPlace = item.BirthPlace,
+                });
+            }
+
+            return listViewModels;
         }
     }
 }
