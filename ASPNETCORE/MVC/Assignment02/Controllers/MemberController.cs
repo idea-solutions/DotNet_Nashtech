@@ -30,9 +30,12 @@ namespace Assignment02.Controllers
         [HttpPost("Create")]
         public IActionResult Create(CreateMemberRequest request)
         {
-            _service.AddMember(request);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                _service.AddMember(request);
+                return RedirectToAction("Index");
+            }
+            return View(request);
         }
-
     }
 }

@@ -4,65 +4,35 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>This is list of people</h1>
+<h1>This is list of member</h1>
 
 <p>
-    <a asp-action="Create" role="button">Add New Person</a>
+    <a asp-action="Create" class="btn btn-primary btn-sm" role="button">Add New Member</a>
+
 </p>
 
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.FullName)
-            </th>
-
-            <th>
-                @Html.DisplayNameFor(model => model.DateOfBirth)
-            </th>
-
-            <th>
-                @Html.DisplayNameFor(model => model.Gender)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PhoneNumber)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BirthPlace)
-            </th>
-
-            <th>
-                @Html.DisplayNameFor(model => model.Age)
-            </th>
-            <th>
-                Actions
-            </th>
+            <th>@Html.DisplayNameFor(model => model.FullName)</th>
+            <th>@Html.DisplayNameFor(model => model.DateOfBirth)</th>
+            <th> @Html.DisplayNameFor(model => model.Gender)</th>
+            <th>@Html.DisplayNameFor(model => model.PhoneNumber)</th>
+            <th>@Html.DisplayNameFor(model => model.BirthPlace)</th>
+            <th>@Html.DisplayNameFor(model => model.Age)</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FullName)
-                </td>
-
-                <td>
-                    @Html.DisplayFor(modelItem => item.DateOfBirth)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Gender)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PhoneNumber)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.BirthPlace)
-                </td>
-
-                <td>
-                    @Html.DisplayFor(modelItem => item.Age)
-                </td>
+                <td>@Html.DisplayFor(modelItem => item.FullName)</td>
+                <td>@Html.DisplayFor(modelItem => item.DateOfBirth)</td>
+                <td>@Html.DisplayFor(modelItem => item.Gender)</td>
+                <td>@Html.DisplayFor(modelItem => item.PhoneNumber)</td>
+                <td>@Html.DisplayFor(modelItem => item.BirthPlace)</td>
+                <td>@Html.DisplayFor(modelItem => item.Age)</td>
                 <td>
                     <a class="btn btn-primary btn-sm" href="#" role="button">Edit</a>
                     <a class="btn btn-danger btn-sm" href="#" role="button">Delete</a>
