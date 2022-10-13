@@ -69,15 +69,14 @@ namespace Assignment02.Services
 
         public void UpdateMember(int index, EditMemberViewModel model)
         {
-            var updateMember = new Member()
-            {
-                FirstName = model.FirstName,
-                LastName = model.LastName,
-                PhoneNumber = model.PhoneNumber,
-                BirthPlace = model.BirthPlace
-            };
+            var member = _dataAccess.Members[index];
 
-            _dataAccess.UpdateMember(index, updateMember);
+            member.FirstName = model.FirstName;
+            member.LastName = model.LastName;
+            member.PhoneNumber = model.PhoneNumber;
+            member.BirthPlace = model.BirthPlace;
+
+            _dataAccess.UpdateMember(index, member);
         }
 
         public void DeleteMember(int index)
