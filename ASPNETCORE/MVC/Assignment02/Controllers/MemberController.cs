@@ -57,6 +57,7 @@ namespace Assignment02.Controllers
                 };
 
                 ViewData["Index"] = index;
+
                 return View(model);
             }
 
@@ -66,7 +67,6 @@ namespace Assignment02.Controllers
         [HttpPost("Update")]
         public IActionResult Update(int index, EditMemberViewModel model)
         {
-            // Check điều kiện return sớm...
             if (!ModelState.IsValid)
             {
                 return View(model);
@@ -88,6 +88,7 @@ namespace Assignment02.Controllers
             {
                 _service.DeleteMember(index);
             }
+
             return RedirectToAction("Index");
         }
     }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "L09etYnF/tztdq5DmYyxEZWh/ILmq9ctkILNhWzt/jCIULNUI/jmeYQxBwdrBqIe0rZCKQkXA4kwcPYJcPJmfw==",
+  "dgSpecHash": "ZKnMoX6x6xflI1FQDTuTJu/iegvw4RIXrNBX62rbsPYCYkXxq5u7aN1Jq1i2kAapBKhaz6mTREuG1tE+1nu1qg==",
   "success": true,
-  "projectFilePath": "C:\\CustomProject\\TheRookies_6\\Dotnet\\ASPNETCORE\\MVC\\Assignment02\\Assignment02.csproj",
+  "projectFilePath": "c:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\ASPNETCORE\\MVC\\Assignment02\\Assignment02.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

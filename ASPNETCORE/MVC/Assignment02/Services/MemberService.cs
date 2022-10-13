@@ -13,8 +13,8 @@ namespace Assignment02.Services
         public List<MemberViewModel> GetListMember()
         {
             var listApplicationModels = _dataAccess.Members;
-
             var listViewModels = new List<MemberViewModel>();
+
             foreach (var item in listApplicationModels)
             {
                 listViewModels.Add(new MemberViewModel
@@ -51,8 +51,8 @@ namespace Assignment02.Services
         public List<EditMemberViewModel> GetListEdit()
         {
             var listApplicationModels = _dataAccess.Members;
-
             var listViewModels = new List<EditMemberViewModel>();
+
             foreach (var item in listApplicationModels)
             {
                 listViewModels.Add(new EditMemberViewModel

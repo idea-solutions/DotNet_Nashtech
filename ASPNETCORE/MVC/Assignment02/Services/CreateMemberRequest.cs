@@ -8,6 +8,7 @@ namespace Assignment02.Services
         [Required(ErrorMessage = "{0} is required")]
         [MaxLength(10)]
         public string? FirstName { get; set; }
+
         [DisplayName("Last Name")]
         public string? LastName { get; set; }
         public int? Gender { get; set; }
