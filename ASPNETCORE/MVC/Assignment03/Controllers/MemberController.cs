@@ -119,11 +119,19 @@ namespace Assignment03.Controllers
         {
             if (index >= 0 && index < _service.GetListMember().Count)
             {
-                TempData["DeleteNameMember"] = _service.GetOneMember(index).FullName;
+                // TempData["DeleteNameMember"] = _service.GetOneMember(index).FullName;
+                HttpContext.Session.SetString("DeleteNameMember", _service.GetOneMember(index).FullName);
                 _service.DeleteMember(index);
             }
 
-            return View("DeleteResult");
+            return RedirectToAction("DeleteResult");
+        }
+
+        [HttpGet("DeleteResult")]
+        public IActionResult DeleteResult()
+        {
+            ViewBag.DeleteNameMember = HttpContext.Session.GetString("DeleteNameMember") ?? "unknown";
+            return View();
         }
     }
 }
