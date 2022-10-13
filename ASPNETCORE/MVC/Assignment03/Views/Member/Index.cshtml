@@ -14,8 +14,7 @@
 <table class="table">
     <thead>
         <tr>
-            <th>@Html.DisplayNameFor(model => model.FirstName)</th>
-            <th>@Html.DisplayNameFor(model => model.LastName)</th>
+            <th>@Html.DisplayNameFor(model => model.FullName)</th>
             <th>@Html.DisplayNameFor(model => model.DateOfBirth)</th>
             <th> @Html.DisplayNameFor(model => model.Gender)</th>
             <th>@Html.DisplayNameFor(model => model.PhoneNumber)</th>
@@ -30,8 +29,9 @@
             var value = item.value;
             var index = item.i;
             <tr>
-                <td>@Html.DisplayFor(modelItem => value.FirstName)</td>
-                <td>@Html.DisplayFor(modelItem => value.LastName)</td>
+                <td class="text-left">
+                    <a asp-action="Details" asp-route-index="@index">@Html.DisplayFor(modelItem => value.FullName)</a>
+                </td>
                 <td>@Html.DisplayFor(modelItem => value.DateOfBirth)</td>
                 <td>@Html.DisplayFor(modelItem => value.Gender)</td>
                 <td>@Html.DisplayFor(modelItem => value.PhoneNumber)</td>

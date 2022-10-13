@@ -40,6 +40,30 @@ namespace Assignment03.Controllers
             return View(request);
         }
 
+        [HttpGet("Details")]
+        public IActionResult Details(int index)
+        {
+            if (index >= 0 && index < _service.GetListMember().Count)
+            {
+                var member = _service.GetOneMember(index);
+                var model = new MemberDetailsModel
+                {
+                    FirstName = member.FirstName,
+                    LastName = member.LastName,
+                    Gender = member.Gender,
+                    DateOfBirth = member.DateOfBirth,
+                    PhoneNumber = member.PhoneNumber,
+                    BirthPlace = member.BirthPlace
+                };
+
+                ViewData["Index"] = index;
+
+                return View(model);
+            }
+
+            return View();
+        }
+
         [HttpGet("Edit")]
         public IActionResult Edit(int index)
         {
@@ -88,6 +112,18 @@ namespace Assignment03.Controllers
             }
 
             return RedirectToAction("Index");
+        }
+
+        [HttpPost("DeleteAndRedirectToResultView")]
+        public IActionResult DeleteAndRedirectToResultView(int index)
+        {
+            if (index >= 0 && index < _service.GetListMember().Count)
+            {
+                TempData["DeleteNameMember"] = _service.GetOneMember(index).FullName;
+                _service.DeleteMember(index);
+            }
+
+            return View("DeleteResult");
         }
     }
 }

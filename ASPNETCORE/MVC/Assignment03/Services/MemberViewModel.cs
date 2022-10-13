@@ -5,11 +5,8 @@ namespace Assignment03.Services
     public class MemberViewModel
     {
 
-        [DisplayName("First Name")]
-        public string? FirstName { get; set; }
-
-        [DisplayName("Last Name")]
-        public string? LastName { get; set; }
+        [DisplayName("Full Name")]
+        public string? FullName { get; set; }
 
         [DisplayName("Date Of Birth")]
         public string? DateOfBirth { get; set; }

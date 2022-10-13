@@ -19,8 +19,7 @@ namespace Assignment03.Services
             {
                 listViewModels.Add(new MemberViewModel
                 {
-                    FirstName = item.FirstName,
-                    LastName = item.LastName,
+                    FullName = item.FullName,
                     DateOfBirth = item.DateOfBirth.ToString("dd/MM/yyyy"),
                     PhoneNumber = item.PhoneNumber,
                     BirthPlace = item.BirthPlace,
@@ -30,6 +29,12 @@ namespace Assignment03.Services
             }
 
             return listViewModels;
+        }
+
+        public Member GetOneMember(int index)
+        {
+
+            return _dataAccess.GetAllMember()[index];
         }
 
         public void AddMember(CreateMemberRequest request)

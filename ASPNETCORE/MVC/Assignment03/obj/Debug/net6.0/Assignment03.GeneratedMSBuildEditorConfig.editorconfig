@@ -27,6 +27,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/CustomProject/TheRookies_6/DotNet_Nashtech/ASPNETCORE/MVC/Assignment03/Views/Member/DeleteResult.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyXERlbGV0ZVJlc3VsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/CustomProject/TheRookies_6/DotNet_Nashtech/ASPNETCORE/MVC/Assignment03/Views/Member/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/CustomProject/TheRookies_6/DotNet_Nashtech/ASPNETCORE/MVC/Assignment03/Views/Member/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
