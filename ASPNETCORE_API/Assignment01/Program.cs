@@ -1,6 +1,13 @@
+using Assignment01.DataAccess;
+using Assignment01.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddTransient<IDataAccess, StaticMemberDataAccess>();
+builder.Services.AddTransient<IServices, MemberService>();
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
