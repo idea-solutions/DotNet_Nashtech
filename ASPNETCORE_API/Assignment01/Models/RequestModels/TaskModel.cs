@@ -2,14 +2,16 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Assignment01.Models;
 
-public class NewTaskRequestModel
+public class TaskModel
 {
 
+    public Guid TaskId { get; set; }
+
     [Required]
-    [MinLength(5)]
     public string Title { get; set; } = null!;
 
-    public bool isCompleted { get; set; }
+    [Required]
+    public bool IsCompleted { get; set; }
 
 }
 
