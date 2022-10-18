@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JIk4G1BAyXjjkrzWmtt9mPiBrrCPLPL99a/vYjFF95BqDWMFV5u0DCHRr3KnEoLRmGCxPwCk0EhWZsa3UVwhEw==",
+  "dgSpecHash": "gBebLtpEy4P3Gp4+Ov/0c8NeXwIxwsac6NypFbEiwZJZBTpxMkk/gKGLXrHAbq8RmGGFv1CqtIXLPGPBcrvunw==",
   "success": true,
-  "projectFilePath": "c:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\EntityFrameworkCore\\EntityFrameworkCore.csproj",
+  "projectFilePath": "C:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\EntityFrameworkCore\\EntityFrameworkCore.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\22nvh\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\22nvh\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
