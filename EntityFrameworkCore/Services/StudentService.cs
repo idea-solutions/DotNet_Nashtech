@@ -33,88 +33,24 @@ public class StudentService : IStudentService
         };
     }
 
-    // public GetAllStudentsResponse GetAll()
-    // {
-    //     var getList = _studentRepository.GetAll();
-    //     _studentRepository.SaveChanges();
-    //     return getList
-    // }
+    public IEnumerable<Student> GetAll()
+    {
+        var getList = _studentRepository.GetAll(x => true);
+        _studentRepository.SaveChanges();
 
-    // public int? Create(StudentCreateModel createModel)
-    // {
-    //     var createStudent = new Student
-    //     {
-    //         FirstName = createModel.FirstName,
-    //         LastName = createModel.LastName,
-    //         City = createModel.City,
-    //         State = createModel.State
-    //     };
+        return getList;
+    }
 
-    //     createStudent = _studentRepository.Create(createStudent);
+    public Student? GetOne(int id)
+    {
 
-    //     return createStudent?.Id;
-    // }
+        var student = _studentRepository.GetOne(x => x.Id == id);
 
-    // public bool Delete(int id)
-    // {
-    //     return _studentRepository.Delete(id);
-    // }
+        if (student != null)
+        {
+            return student;
+        };
 
-    // public IEnumerable<StudentViewModel> GetAll()
-    // {
-    //     var viewModels = _studentRepository
-    //         .GetAll()
-    //         .Select(student => new StudentViewModel
-    //         {
-    //             FirstName = student.FirstName,
-    //             LastName = student.LastName,
-    //             City = student.City,
-    //             State = student.State
-    //         });
-
-    //     return viewModels;
-    // }
-
-    // public StudentViewModel? GetById(int id)
-    // {
-    //     var student = _studentRepository.GetById(id);
-
-    //     if (student == null) return null;
-
-    //     var viewModel = new StudentViewModel
-    //     {
-    //         FirstName = student.FirstName,
-    //         LastName = student.LastName,
-    //         City = student.City,
-    //         State = student.State
-    //     };
-
-    //     return viewModel;
-    // }
-
-    // public StudentViewModel? Update(int id, StudentUpdateModel updateModel)
-    // {
-    //     var student = _studentRepository.GetById(id);
-
-    //     if (student == null) return null;
-
-    //     student.FirstName = updateModel.FirstName;
-    //     student.LastName = updateModel.LastName;
-    //     student.City = updateModel.City;
-    //     student.State = updateModel.State;
-
-    //     student = _studentRepository.Update(student);
-
-    //     if (student == null) return null;
-
-    //     var viewModel = new StudentViewModel
-    //     {
-    //         FirstName = student.FirstName,
-    //         LastName = student.LastName,
-    //         City = student.City,
-    //         State = student.State
-    //     };
-
-    //     return viewModel;
-    // }
+        return null;
+    }
 }
