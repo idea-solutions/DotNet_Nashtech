@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\ASPNETCORE_API\\Assignment01\\Assignment01.csproj",
+  "FilePath": "c:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\ASPNETCORE_API\\Assignment02\\Assignment02.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "6.0",
@@ -16295,7 +16295,7 @@
     ],
     "CSharpLanguageVersion": 1000
   },
-  "RootNamespace": "Assignment01",
+  "RootNamespace": "Assignment02",
   "Documents": [],
   "SerializationFormat": "0.2"
 }
