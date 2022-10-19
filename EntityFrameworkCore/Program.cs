@@ -1,5 +1,8 @@
+using EntityFrameworkCore.Data;
 using EntityFrameworkCore.Models;
 using EntityFrameworkCore.Repositories;
+using EntityFrameworkCore.Services;
+// using EntityFrameworkCore.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,10 +14,12 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddTransient<IBookRepository, BookRepository>();
+builder.Services.AddScoped<IStudentService, StudentService>();
+
+builder.Services.AddScoped<IStudentRepository, StudentRepository>();
 
 
-builder.Services.AddDbContext<BookStoreContext>(options =>
+builder.Services.AddDbContext<StudentManagementContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DBConnString")));
 
 var app = builder.Build();
