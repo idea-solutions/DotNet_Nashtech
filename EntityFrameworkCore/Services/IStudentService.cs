@@ -5,6 +5,8 @@ namespace EntityFrameworkCore.Services;
 public interface IStudentService
 {
     AddStudentResponse Create(AddStudentRequest createModel);
-    IEnumerable<Student> GetAll();
-    Student? GetOne(int id);
+    public IEnumerable<GetStudentResponse> GetAll();
+    GetStudentResponse? GetOne(int id);
+    UpdateStudentResponse? Update(int id, UpdateStudentRequest updateModel);
+    bool Delete(int id);
 }

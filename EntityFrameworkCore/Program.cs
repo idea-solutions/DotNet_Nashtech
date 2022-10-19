@@ -14,9 +14,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<IStudentService, StudentService>();
-
-builder.Services.AddScoped<IStudentRepository, StudentRepository>();
+builder.Services.AddTransient<IStudentService, StudentService>();
+builder.Services.AddTransient<IStudentRepository, StudentRepository>();
 
 
 builder.Services.AddDbContext<StudentManagementContext>(options =>

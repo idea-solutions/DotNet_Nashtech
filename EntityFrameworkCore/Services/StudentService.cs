@@ -21,9 +21,8 @@ public class StudentService : IStudentService
             City = createModel.City,
             State = createModel.State
         };
-
         var student = _studentRepository.Create(createStudent);
-
+        
         _studentRepository.SaveChanges();
 
         return new AddStudentResponse
@@ -33,23 +32,81 @@ public class StudentService : IStudentService
         };
     }
 
-    public IEnumerable<Student> GetAll()
+    public bool Delete(int id)
     {
-        var getList = _studentRepository.GetAll(x => true);
-        _studentRepository.SaveChanges();
+        var student = _studentRepository.GetOne(s => s.Id == id);
 
-        return getList;
+        if (student != null)
+        {
+            bool result = _studentRepository.Delete(student);
+
+            _studentRepository.SaveChanges();
+
+            return result;
+        }
+
+        return false;
     }
 
-    public Student? GetOne(int id)
+    public IEnumerable<GetStudentResponse> GetAll()
+    {
+        var listStudent = _studentRepository.GetAll(x => true).Select(student => new GetStudentResponse
+        {
+            StudentId = student.Id,
+            FirstName = student.FirstName,
+            LastName = student.LastName,
+            City = student.City,
+            State = student.State
+        });
+
+        _studentRepository.SaveChanges();
+
+        return listStudent;
+    }
+
+    public GetStudentResponse? GetOne(int id)
     {
 
         var student = _studentRepository.GetOne(x => x.Id == id);
 
         if (student != null)
         {
-            return student;
+            return new GetStudentResponse
+            {
+                StudentId = student.Id,
+                FirstName = student.FirstName,
+                LastName = student.LastName,
+                City = student.City,
+                State = student.State
+            };
         };
+
+        return null;
+    }
+
+    public UpdateStudentResponse? Update(int id, UpdateStudentRequest updateModel)
+    {
+        var student = _studentRepository.GetOne(s => s.Id == id);
+
+        if (student != null)
+        {
+            student.FirstName = updateModel.FirstName;
+            student.LastName = updateModel.LastName;
+            student.City = updateModel.City;
+            student.State = updateModel.State;
+
+            var updateStudent = _studentRepository.Update(student);
+
+            _studentRepository.SaveChanges();
+
+            return new UpdateStudentResponse
+            {
+                FirstName = updateStudent.FirstName,
+                LastName = updateStudent.LastName,
+                City = updateStudent.City,
+                State = updateStudent.State
+            };
+        }
 
         return null;
     }

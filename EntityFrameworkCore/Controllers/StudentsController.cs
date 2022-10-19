@@ -22,14 +22,27 @@ public class StudentsController : ControllerBase
     }
 
     [HttpGet]
-    public IEnumerable<Student> GetAll()
+    public IEnumerable<GetStudentResponse> GetAll()
     {
         return _studentService.GetAll();
     }
 
     [HttpGet("{id}", Name = "GetById")]
-    public Student? GetById(int id)
+    public GetStudentResponse? GetById(int id)
     {
         return _studentService.GetOne(id);
     }
+
+    [HttpPut("{id}", Name = "Update")]
+    public UpdateStudentResponse? Update(int id, [FromBody] UpdateStudentRequest updateModel)
+    {
+        return _studentService.Update(id, updateModel);
+    }
+
+    [HttpDelete("{id}", Name = "Delete")]
+    public bool Delete(int id)
+    {
+        return _studentService.Delete(id);
+    }
+
 }
