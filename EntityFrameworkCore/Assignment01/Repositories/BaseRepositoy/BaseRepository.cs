@@ -30,7 +30,7 @@ public class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity<int>
 
     public IEnumerable<T> GetAll(Expression<Func<T, bool>> predicate)
     {
-        return _dbSet.Where(predicate);
+        return predicate != null ? _dbSet.Where(predicate) : _dbSet;
     }
 
     public T? GetOne(Expression<Func<T, bool>> predicate)

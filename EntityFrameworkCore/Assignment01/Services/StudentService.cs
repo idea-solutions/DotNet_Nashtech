@@ -101,6 +101,7 @@ public class StudentService : IStudentService
 
             return new UpdateStudentResponse
             {
+                StudentId = id,
                 FirstName = updateStudent.FirstName,
                 LastName = updateStudent.LastName,
                 City = updateStudent.City,

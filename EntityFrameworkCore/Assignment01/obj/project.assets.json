@@ -2194,11 +2194,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\EntityFrameworkCore\\EntityFrameworkCore.csproj",
+      "projectUniqueName": "c:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\EntityFrameworkCore\\Assignment01\\EntityFrameworkCore.csproj",
       "projectName": "EntityFrameworkCore",
-      "projectPath": "C:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\EntityFrameworkCore\\EntityFrameworkCore.csproj",
+      "projectPath": "c:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\EntityFrameworkCore\\Assignment01\\EntityFrameworkCore.csproj",
       "packagesPath": "C:\\Users\\22nvh\\.nuget\\packages\\",
-      "outputPath": "C:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\EntityFrameworkCore\\obj\\",
+      "outputPath": "c:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\EntityFrameworkCore\\Assignment01\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\22nvh\\AppData\\Roaming\\NuGet\\NuGet.Config"
