@@ -42,6 +42,28 @@ namespace Assignment02.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.InsertData(
+                table: "Category",
+                columns: new[] { "CategoryId", "CategoryName" },
+                values: new object[] { 1, "Fruit" });
+
+            migrationBuilder.InsertData(
+                table: "Category",
+                columns: new[] { "CategoryId", "CategoryName" },
+                values: new object[] { 2, "Animal" });
+
+            migrationBuilder.InsertData(
+                table: "Product",
+                columns: new[] { "ProductId", "CategoryId", "Manufacture", "ProductName" },
+                values: new object[,]
+                {
+                    { 1, 1, "VN", "Banana" },
+                    { 2, 2, "VN", "Cat" },
+                    { 3, 1, "US", "Orange" },
+                    { 4, 1, "JP", "Lemon" },
+                    { 5, 2, "CN", "Dog" }
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Product_CategoryId",
                 table: "Product",

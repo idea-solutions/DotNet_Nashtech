@@ -23,12 +23,12 @@ namespace Assignment02.Migrations
 
             modelBuilder.Entity("Assignment02.Models.Category", b =>
                 {
-                    b.Property<int>("CategoryId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("CategoryId");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoryId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("CategoryName")
                         .IsRequired()
@@ -36,19 +36,31 @@ namespace Assignment02.Migrations
                         .HasColumnType("nvarchar(500)")
                         .HasColumnName("CategoryName");
 
-                    b.HasKey("CategoryId");
+                    b.HasKey("Id");
 
                     b.ToTable("Category", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CategoryName = "Fruit"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CategoryName = "Animal"
+                        });
                 });
 
             modelBuilder.Entity("Assignment02.Models.Product", b =>
                 {
-                    b.Property<int>("ProductId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("ProductId");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("CategoryId")
                         .HasColumnType("int")
@@ -66,11 +78,48 @@ namespace Assignment02.Migrations
                         .HasColumnType("nvarchar(500)")
                         .HasColumnName("ProductName");
 
-                    b.HasKey("ProductId");
+                    b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Product", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CategoryId = 1,
+                            Manufacture = "VN",
+                            ProductName = "Banana"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CategoryId = 2,
+                            Manufacture = "VN",
+                            ProductName = "Cat"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CategoryId = 1,
+                            Manufacture = "US",
+                            ProductName = "Orange"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CategoryId = 1,
+                            Manufacture = "JP",
+                            ProductName = "Lemon"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CategoryId = 2,
+                            Manufacture = "CN",
+                            ProductName = "Dog"
+                        });
                 });
 
             modelBuilder.Entity("Assignment02.Models.Product", b =>
