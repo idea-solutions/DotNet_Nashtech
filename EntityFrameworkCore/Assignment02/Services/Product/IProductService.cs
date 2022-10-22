@@ -5,8 +5,8 @@ namespace Assignment02.Services;
 public interface IProductService
 {
     AddProductResponse? Create(AddProductRequest createModel);
-    // IEnumerable<GetStudentResponse> GetAll();
-    // GetStudentResponse? GetOne(int id);
-    // UpdateStudentResponse? Update(int id, UpdateStudentRequest updateModel);
-    // bool Delete(int id);
+    IEnumerable<GetProductResponse> GetAll();
+    GetProductResponse? GetById(int id);
+    UpdateProductResponse? Update(int id, UpdateProductRequest updateModel);
+    bool Delete(int id);
 }

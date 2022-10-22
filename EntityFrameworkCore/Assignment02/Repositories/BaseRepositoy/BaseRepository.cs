@@ -38,7 +38,7 @@ public class BaseRepository<T> : IBaseRepository<T> where T : class
         return predicate != null ? _dbSet.Where(predicate) : _dbSet;
     }
 
-    public T? GetOne(Expression<Func<T, bool>>? predicate)
+    public T? GetById(Expression<Func<T, bool>>? predicate)
     {
         return predicate != null ? _dbSet.FirstOrDefault(predicate) : _dbSet.FirstOrDefault();
     }
