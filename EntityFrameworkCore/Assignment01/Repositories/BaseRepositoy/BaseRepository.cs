@@ -28,7 +28,7 @@ public class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity<int>
         return true;
     }
 
-    public IEnumerable<T> GetAll(Expression<Func<T, bool>> predicate)
+    public IEnumerable<T> GetAll(Expression<Func<T, bool>>? predicate)
     {
         return predicate != null ? _dbSet.Where(predicate) : _dbSet;
     }
