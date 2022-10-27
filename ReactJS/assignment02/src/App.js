@@ -1,13 +1,14 @@
-import { SelectBox } from "./SelectBox";
-import "./App.css";
-import { InfoMembers } from "./InfoMembers";
 import { useState } from "react";
-import { Counter } from "./Counter";
+import { InfoMembers } from "./components/InfoMembers";
+import { SelectBox } from "./components/SelectBox";
+import { Checkboxs } from "./components/Checkboxs";
+import "./App.css";
+import { Counter } from "./components/Counter";
 
 const App = () => {
     const [value, setValue] = useState("");
 
-    const ResultSelected = () => {
+    const ResultSelected = value => {
         switch (value) {
             case "welcome":
                 return (
@@ -30,22 +31,18 @@ const App = () => {
                     </>
                 );
             case "counter":
-                return (
-                    <>
-                        <Counter />
-                    </>
-                );
+                return <Counter />;
             case "checkboxs":
-                return <>TODO</>;
+                return <Checkboxs />;
             default:
-                break;
+                return;
         }
     };
 
     return (
         <div className="App">
             <SelectBox value={value} setValue={setValue} />
-            {ResultSelected()}
+            {ResultSelected(value)}
         </div>
     );
 };

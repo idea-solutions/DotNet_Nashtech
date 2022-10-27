@@ -16,3 +16,7 @@
 .member_box_yellow {
     background-color: yellow;
 }
+
+.checkbox-list {
+    display: flex;
+}

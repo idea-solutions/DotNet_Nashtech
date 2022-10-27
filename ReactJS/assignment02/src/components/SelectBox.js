@@ -1,15 +1,14 @@
 export const SelectBox = ({ value, setValue }) => {
-
-    const handleChange = (e) => {
-        setValue(e.target.value);
-    };
-
     const options = [
         { value: "", text: "Choose an option" },
         { value: "welcome", text: "Welcome" },
         { value: "counter", text: "Counter" },
         { value: "checkboxs", text: "Checkboxs" },
     ];
+
+    const handleChange = (e) => {
+        setValue(e.target.value);
+    };
 
     return (
         <>
