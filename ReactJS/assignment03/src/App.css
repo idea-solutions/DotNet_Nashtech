@@ -1,0 +1,22 @@
+.App {
+    margin: 50px;
+}
+
+.member_box {
+    max-width: 300px;
+}
+
+.member_box_red {
+    background-color: red;
+}
+
+.member_box_green {
+    background-color: green;
+}
+.member_box_yellow {
+    background-color: yellow;
+}
+
+.checkbox-list {
+    display: flex;
+}
