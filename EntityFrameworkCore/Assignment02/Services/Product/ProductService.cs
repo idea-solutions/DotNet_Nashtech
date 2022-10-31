@@ -94,7 +94,7 @@ public class ProductService : IProductService
         {
             try
             {
-                var listProduct = _productRepository.GetAll(x => true).Select(d => new GetProductResponse
+                var listProduct = _productRepository.GetAll().Select(d => new GetProductResponse
                 {
                     ProductId = d.Id,
                     ProductName = d.ProductName,

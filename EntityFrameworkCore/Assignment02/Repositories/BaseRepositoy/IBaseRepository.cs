@@ -5,7 +5,7 @@ namespace Assignment02.Repositories;
 
 public interface IBaseRepository<T> where T : class
 {
-    IEnumerable<T> GetAll(Expression<Func<T, bool>>? predicate);
+    IEnumerable<T> GetAll(Expression<Func<T, bool>>? predicate = null);
     T? GetById(Expression<Func<T, bool>> predicate);
     T Create(T entity);
     T Update(T entity);

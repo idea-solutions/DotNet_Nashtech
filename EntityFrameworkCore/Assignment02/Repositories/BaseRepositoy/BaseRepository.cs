@@ -33,12 +33,12 @@ public class BaseRepository<T> : IBaseRepository<T> where T : class
         return new EntityDbTransaction(_context);
     }
 
-    public IEnumerable<T> GetAll(Expression<Func<T, bool>>? predicate)
+    public IEnumerable<T> GetAll(Expression<Func<T, bool>>? predicate = null)
     {
         return predicate != null ? _dbSet.Where(predicate) : _dbSet;
     }
 
-    public T? GetById(Expression<Func<T, bool>>? predicate)
+    public T? GetById(Expression<Func<T, bool>>? predicate = null)
     {
         return predicate != null ? _dbSet.FirstOrDefault(predicate) : _dbSet.FirstOrDefault();
     }

@@ -81,7 +81,7 @@ public class CategoryService : ICategoryService
         {
             try
             {
-                var listCategories = _categoryRepository.GetAll(x => true).Select(c => new GetCategoryResponse
+                var listCategories = _categoryRepository.GetAll().Select(c => new GetCategoryResponse
                 {
                     CategoryId = c.Id,
                     CategoryName = c.CategoryName
