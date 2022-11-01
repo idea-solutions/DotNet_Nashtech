@@ -39,7 +39,8 @@ public class TasksController : ControllerBase
         try
         {
             var data = _service.GetOne(id);
-            return Ok(data);
+
+            return data != null ? Ok(data) : NotFound();
         }
         catch (Exception ex)
         {
@@ -52,6 +53,7 @@ public class TasksController : ControllerBase
     public IActionResult AddTask([FromBody] TaskModel requestModel)
     {
         // TODO: Validate request model
+        if (requestModel == null) return BadRequest();
 
         try
         {
@@ -80,14 +82,14 @@ public class TasksController : ControllerBase
         }
     }
 
-    [HttpPut]
-    public IActionResult EditTask([FromBody] TaskModel requestModel)
+    [HttpPut("{id}")]
+    public IActionResult EditTask(Guid id, [FromBody] TaskModel requestModel)
     {
         // TODO: Validate request model
 
         try
         {
-            var data = _service.EditTask(requestModel);
+            var data = _service.EditTask(id, requestModel);
             return Ok(data);
         }
         catch (Exception ex)
@@ -134,71 +136,4 @@ public class TasksController : ControllerBase
         }
     }
 
-
-
-    // [HttpPost("/v1/bulk")]
-    // public IActionResult CreateBulkTask_V1([FromBody] List<NewTaskRequestModel> requestModel)
-    // {
-
-    //     // TODO: Validate request model
-
-    //     try
-    //     {
-    //         // TODO: Create new Task request model
-    //         createMultiTask_V1(requestModel);
-
-    //         return Accepted();
-    //     }
-    //     catch (Exception ex)
-    //     {
-
-    //         return StatusCode(StatusCodes.Status500InternalServerError, ex);
-    //     }
-    // }
-
-    // [HttpPost("/v2/bulk")]
-    // public async Task<IActionResult> CreateBulkTask_V2([FromBody] List<NewTaskRequestModel> requestModel)
-    // {
-
-    //     // TODO: Validate request model
-
-    //     try
-    //     {
-    //         // TODO: Create new Task request model
-    //         await createMultiTask_V1(requestModel);
-
-    //         return Ok();
-    //     }
-    //     catch (Exception ex)
-    //     {
-    //         return StatusCode(StatusCodes.Status500InternalServerError, ex);
-    //     }
-    // }
-
-
-    // private Task createMultiTask_V1(List<NewTaskRequestModel> requestModel)
-    // {
-    //     foreach (var item in requestModel)
-    //     {
-    //         CreateANewTask__Service(item);
-    //     }
-
-    //     // TODO: Notify result to client: send emails,...
-    //     _ = SendEmail();
-
-    //     return Task.CompletedTask;
-    // }
-
-
-    // private void CreateANewTask__Service(NewTaskRequestModel requestModel)
-    // {
-    //     System.Threading.Thread.Sleep(10);
-    // }
-
-    // private Task SendEmail()
-    // {
-    //     // TODO: handle Send Email...
-
-    //     return Task.CompletedTask;
-    // }
 }

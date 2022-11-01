@@ -6,22 +6,22 @@ namespace Assignment01.Services
     public class TaskService : ITaskService
     {
         private static List<TaskModel> _taskList = new List<TaskModel>(){
-        new TaskModel{
-            TaskId = Guid.NewGuid(),
-            Title = "Task 01",
-            IsCompleted = true
-        },
-        new TaskModel{
-            TaskId = Guid.NewGuid(),
-            Title = "Task 02",
-            IsCompleted = false
-        },
-        new TaskModel{
-            TaskId = Guid.NewGuid(),
-            Title = "Task 03",
-            IsCompleted = true
-        }
-    };
+            new TaskModel{
+                TaskId = Guid.NewGuid(),
+                Title = "Task 01",
+                IsCompleted = true
+            },
+            new TaskModel{
+                TaskId = Guid.NewGuid(),
+                Title = "Task 02",
+                IsCompleted = false
+            },
+            new TaskModel{
+                TaskId = Guid.NewGuid(),
+                Title = "Task 03",
+                IsCompleted = true
+            }
+        };
 
         public TaskModel AddTask(TaskModel task)
         {
@@ -61,9 +61,9 @@ namespace Assignment01.Services
             _taskList.RemoveAll(t => ids.Contains(t.TaskId));
         }
 
-        public TaskModel? EditTask(TaskModel task)
+        public TaskModel? EditTask(Guid id, TaskModel task)
         {
-            var result = _taskList.FirstOrDefault(t => t.TaskId == task.TaskId);
+            var result = _taskList.FirstOrDefault(task => task.TaskId == id);
             if (result != null)
             {
                 result.Title = task.Title;
