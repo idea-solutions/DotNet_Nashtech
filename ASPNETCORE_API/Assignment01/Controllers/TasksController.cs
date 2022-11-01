@@ -30,7 +30,6 @@ public class TasksController : ControllerBase
         {
             return StatusCode(StatusCodes.Status500InternalServerError, ex);
         }
-
     }
 
     [HttpGet("{id}")]
