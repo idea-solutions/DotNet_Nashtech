@@ -1,0 +1,15 @@
+.input-checkbox label {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .input-checkbox label span {
+    width: 100%;
+    flex: 90% !important;
+    text-align: left;
+  }
+  
+  .input-checkbox label input{
+    width: 100%;
+    flex: 10% !important;
+  }

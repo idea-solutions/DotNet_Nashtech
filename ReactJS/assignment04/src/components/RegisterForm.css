@@ -1,0 +1,37 @@
+.register-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 50vw;
+    margin: auto;
+  }
+  
+  .register-form div {
+    width: 100%;
+    margin-top: 1rem;
+  }
+  
+  .register-form label {
+    display: flex;
+    justify-content: space-between;
+    /* margin-inline: 1rem; */
+  }
+  
+  .register-form label span {
+    width: 100%;
+    flex: 30%;
+    text-align: left;
+  }
+  
+  .register-form label input,
+  .register-form label select {
+    width: 100%;
+    flex: 70%;
+  }
+  
+  .register-form button {
+    margin: auto;
+    padding: 1rem;
+  }
+  
