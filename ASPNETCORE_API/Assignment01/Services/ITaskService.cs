@@ -4,12 +4,12 @@ namespace Assignment01.Services
 {
     public interface ITaskService
     {
-        public List<TaskModel> GetAll();
-        public TaskModel? GetOne(Guid id);
-        public TaskModel AddTask(TaskModel task);
-        public TaskModel? EditTask(Guid id, TaskModel task);
-        public bool DeleteTask(Guid id);
-        public List<TaskModel> AddMulti(List<TaskModel> tasks);
-        public void DeleteMulti(List<Guid> ids);
+        List<TaskModel> GetAll();
+        TaskModel? GetOne(Guid id);
+        TaskModel AddTask(TaskModel task);
+        TaskModel? EditTask(Guid id, TaskModel task);
+        bool DeleteTask(Guid id);
+        List<TaskModel> AddMulti(List<TaskModel> tasks);
+        void DeleteMulti(List<Guid> ids);
     }
 }
