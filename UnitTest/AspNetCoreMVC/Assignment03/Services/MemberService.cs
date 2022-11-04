@@ -107,9 +107,17 @@ namespace Assignment03.Services
             _members[index] = member;
         }
 
-        public void DeleteMember(int index)
+        public Member? DeleteMember(int index)
         {
-            _members.RemoveAt(index);
+            if (index >= 0 && index < _members.Count)
+            {
+                var member = _members[index];
+                _members.RemoveAt(index);
+
+                return member;
+            }
+
+            return null;
         }
 
     }

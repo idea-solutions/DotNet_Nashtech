@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Assignment03.Services;
+using Assignment03.Models;
+
 namespace Assignment03.Controllers
 {
     [Route("[controller]")]
@@ -41,10 +43,11 @@ namespace Assignment03.Controllers
         [HttpGet("Details")]
         public IActionResult Details(int index)
         {
-            if (index >= 0 && index < _service.GetListMember().Count)
+            var member = _service.GetOneMember(index);
+
+            if (member != null)
             {
-                var member = _service.GetOneMember(index);
-                var model = new MemberDetailsModel
+                var model = new Member
                 {
                     FirstName = member.FirstName,
                     LastName = member.LastName,
@@ -59,7 +62,7 @@ namespace Assignment03.Controllers
                 return View(model);
             }
 
-            return View();
+            return Content("NotFound");
         }
 
         [HttpGet("Edit")]
@@ -81,7 +84,7 @@ namespace Assignment03.Controllers
                 return View(model);
             }
 
-            return View();
+            return BadRequest();
         }
 
         [HttpPost("Update")]
@@ -104,12 +107,15 @@ namespace Assignment03.Controllers
         [HttpPost("Delete")]
         public IActionResult Delete(int index)
         {
-            if (index >= 0 && index < _service.GetListMember().Count)
+            var result = _service.DeleteMember(index);
+
+            if (result == null)
             {
-                _service.DeleteMember(index);
+                return NotFound();
             }
 
             return RedirectToAction("Index");
+
         }
 
         [HttpPost("DeleteAndRedirectToResultView")]

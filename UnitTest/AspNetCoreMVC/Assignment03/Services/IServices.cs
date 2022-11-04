@@ -8,6 +8,6 @@ namespace Assignment03.Services
         void AddMember(CreateMemberRequest request);
         List<EditMemberViewModel> GetListEdit();
         void UpdateMember(int index, EditMemberViewModel model);
-        void DeleteMember(int index);
+        Member? DeleteMember(int index);
     }
 }
