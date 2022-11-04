@@ -158,8 +158,8 @@ public class ControllerUnitTest
         int index = 1;
         var response = new Member()
         {
-            FirstName = "a",
-            LastName = "b",
+            FirstName = "test 1",
+            LastName = "test 2",
         };
 
         _memberService.Setup(s => s.DeleteMember(It.IsAny<int>()))
