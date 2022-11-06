@@ -7,9 +7,9 @@ namespace WebAPI.Services
 {
     public class TestService : ITestService
     {
-        private TestContext _context;
+        private DataContext _context;
 
-        public TestService(TestContext context)
+        public TestService(DataContext context)
         {
             _context = context;
         }

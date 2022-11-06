@@ -12,7 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 var configuration = builder.Configuration;
-builder.Services.AddDbContext<TestContext>(opt =>
+builder.Services.AddDbContext<DataContext>(opt =>
 {
     opt.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
 });
