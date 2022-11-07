@@ -1,4 +1,5 @@
 
+using System.Linq.Expressions;
 using Data.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -6,8 +7,8 @@ namespace Data.Repositories
 {
     public class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity<int>
     {
-        private readonly DbSet<T> _dbSet;
-        private readonly DataContext _context;
+        protected readonly DbSet<T> _dbSet;
+        protected readonly DataContext _context;
         public BaseRepository(DataContext context)
         {
             _dbSet = context.Set<T>();
@@ -62,8 +63,10 @@ namespace Data.Repositories
             }
         }
 
-        public async Task<IEnumerable<T>> GetAllAsync()
+        public async Task<IEnumerable<T>> GetAllAsync(Expression<Func<T, bool>>? predicate = null)
         {
+            var dbSet = predicate == null ? _dbSet : _dbSet.Where(predicate);
+
             return await _dbSet.ToListAsync();
         }
 

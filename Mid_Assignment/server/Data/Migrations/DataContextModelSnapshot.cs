@@ -33,6 +33,9 @@ namespace Data.Migrations
                     b.Property<string>("Author")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("BookBorrowingRequestId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -42,6 +45,8 @@ namespace Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("BookBorrowingRequestId");
 
                     b.ToTable("Book", (string)null);
 
@@ -108,21 +113,21 @@ namespace Data.Migrations
                         new
                         {
                             Id = 1,
-                            DateRequested = new DateTime(2022, 11, 6, 17, 42, 31, 941, DateTimeKind.Local).AddTicks(9460),
+                            DateRequested = new DateTime(2022, 11, 7, 19, 7, 58, 500, DateTimeKind.Local).AddTicks(3453),
                             RequestedByUserId = 2,
                             Status = 0
                         },
                         new
                         {
                             Id = 2,
-                            DateRequested = new DateTime(2022, 11, 6, 17, 42, 31, 941, DateTimeKind.Local).AddTicks(9469),
+                            DateRequested = new DateTime(2022, 11, 7, 19, 7, 58, 500, DateTimeKind.Local).AddTicks(3462),
                             RequestedByUserId = 3,
                             Status = 0
                         },
                         new
                         {
                             Id = 3,
-                            DateRequested = new DateTime(2022, 11, 6, 17, 42, 31, 941, DateTimeKind.Local).AddTicks(9470),
+                            DateRequested = new DateTime(2022, 11, 7, 19, 7, 58, 500, DateTimeKind.Local).AddTicks(3463),
                             RequestedByUserId = 2,
                             Status = 1,
                             StatusUpdateByUserId = 1
@@ -130,9 +135,9 @@ namespace Data.Migrations
                         new
                         {
                             Id = 4,
-                            DateRequested = new DateTime(2022, 11, 6, 17, 42, 31, 941, DateTimeKind.Local).AddTicks(9472),
+                            DateRequested = new DateTime(2022, 11, 7, 19, 7, 58, 500, DateTimeKind.Local).AddTicks(3464),
                             RequestedByUserId = 3,
-                            Status = 2,
+                            Status = -1,
                             StatusUpdateByUserId = 1
                         });
                 });
@@ -275,12 +280,17 @@ namespace Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<int?>("BookId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("BookId");
 
                     b.ToTable("Categories", (string)null);
 
@@ -350,7 +360,7 @@ namespace Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("PasswordSalt")
+                    b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -370,24 +380,31 @@ namespace Data.Migrations
                         new
                         {
                             Id = 1,
-                            PasswordSalt = "hoan1",
+                            Password = "hoan1",
                             Role = 1,
                             Username = "hoan1"
                         },
                         new
                         {
                             Id = 2,
-                            PasswordSalt = "hoan2",
+                            Password = "hoan2",
                             Role = 0,
                             Username = "hoan2"
                         },
                         new
                         {
                             Id = 3,
-                            PasswordSalt = "hoan3",
+                            Password = "hoan3",
                             Role = 0,
                             Username = "hoan3"
                         });
+                });
+
+            modelBuilder.Entity("Data.Entities.Book", b =>
+                {
+                    b.HasOne("Data.Entities.BookBorrowingRequest", null)
+                        .WithMany("Books")
+                        .HasForeignKey("BookBorrowingRequestId");
                 });
 
             modelBuilder.Entity("Data.Entities.BookBorrowingRequest", b =>
@@ -445,15 +462,26 @@ namespace Data.Migrations
                     b.Navigation("Category");
                 });
 
+            modelBuilder.Entity("Data.Entities.Category", b =>
+                {
+                    b.HasOne("Data.Entities.Book", null)
+                        .WithMany("Categories")
+                        .HasForeignKey("BookId");
+                });
+
             modelBuilder.Entity("Data.Entities.Book", b =>
                 {
                     b.Navigation("BookCategories");
+
+                    b.Navigation("Categories");
 
                     b.Navigation("RequestDetails");
                 });
 
             modelBuilder.Entity("Data.Entities.BookBorrowingRequest", b =>
                 {
+                    b.Navigation("Books");
+
                     b.Navigation("RequestDetails");
                 });
 

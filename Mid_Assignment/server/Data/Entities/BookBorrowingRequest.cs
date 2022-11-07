@@ -16,5 +16,6 @@ namespace Data.Entities
         public int? StatusUpdateByUserId { get; set; }
         public virtual User? StatusUpdateBy { get; set; }
         public ICollection<BookBorrowingRequestDetails>? RequestDetails { get; set; }
+        public ICollection<Book>? Books { get; set; }
     }
 }
