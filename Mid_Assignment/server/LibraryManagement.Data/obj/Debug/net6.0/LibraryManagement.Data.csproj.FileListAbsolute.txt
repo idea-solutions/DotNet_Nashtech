@@ -1,0 +1,15 @@
+C:\CustomProject\TheRookies_6\DotNet_Nashtech\Mid_Assignment\server\LibraryManagement.Data\bin\Debug\net6.0\LibraryManagement.Data.deps.json
+C:\CustomProject\TheRookies_6\DotNet_Nashtech\Mid_Assignment\server\LibraryManagement.Data\bin\Debug\net6.0\LibraryManagement.Data.dll
+C:\CustomProject\TheRookies_6\DotNet_Nashtech\Mid_Assignment\server\LibraryManagement.Data\bin\Debug\net6.0\LibraryManagement.Data.pdb
+C:\CustomProject\TheRookies_6\DotNet_Nashtech\Mid_Assignment\server\LibraryManagement.Data\bin\Debug\net6.0\Common.dll
+C:\CustomProject\TheRookies_6\DotNet_Nashtech\Mid_Assignment\server\LibraryManagement.Data\bin\Debug\net6.0\Common.pdb
+C:\CustomProject\TheRookies_6\DotNet_Nashtech\Mid_Assignment\server\LibraryManagement.Data\obj\Debug\net6.0\LibraryManagement.Data.csproj.AssemblyReference.cache
+C:\CustomProject\TheRookies_6\DotNet_Nashtech\Mid_Assignment\server\LibraryManagement.Data\obj\Debug\net6.0\LibraryManagement.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\CustomProject\TheRookies_6\DotNet_Nashtech\Mid_Assignment\server\LibraryManagement.Data\obj\Debug\net6.0\LibraryManagement.Data.AssemblyInfoInputs.cache
+C:\CustomProject\TheRookies_6\DotNet_Nashtech\Mid_Assignment\server\LibraryManagement.Data\obj\Debug\net6.0\LibraryManagement.Data.AssemblyInfo.cs
+C:\CustomProject\TheRookies_6\DotNet_Nashtech\Mid_Assignment\server\LibraryManagement.Data\obj\Debug\net6.0\LibraryManagement.Data.csproj.CoreCompileInputs.cache
+C:\CustomProject\TheRookies_6\DotNet_Nashtech\Mid_Assignment\server\LibraryManagement.Data\obj\Debug\net6.0\LibraryManagement.Data.csproj.CopyComplete
+C:\CustomProject\TheRookies_6\DotNet_Nashtech\Mid_Assignment\server\LibraryManagement.Data\obj\Debug\net6.0\LibraryManagement.Data.dll
+C:\CustomProject\TheRookies_6\DotNet_Nashtech\Mid_Assignment\server\LibraryManagement.Data\obj\Debug\net6.0\refint\LibraryManagement.Data.dll
+C:\CustomProject\TheRookies_6\DotNet_Nashtech\Mid_Assignment\server\LibraryManagement.Data\obj\Debug\net6.0\LibraryManagement.Data.pdb
+C:\CustomProject\TheRookies_6\DotNet_Nashtech\Mid_Assignment\server\LibraryManagement.Data\obj\Debug\net6.0\ref\LibraryManagement.Data.dll

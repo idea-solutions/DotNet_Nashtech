@@ -1,0 +1,214 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\Mid_Assignment\\server\\LibraryManagementWebAPI\\LibraryManagementWebAPI.csproj": {}
+  },
+  "projects": {
+    "C:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\Mid_Assignment\\server\\Common\\Common.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\Mid_Assignment\\server\\Common\\Common.csproj",
+        "projectName": "Common",
+        "projectPath": "C:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\Mid_Assignment\\server\\Common\\Common.csproj",
+        "packagesPath": "C:\\Users\\22nvh\\.nuget\\packages\\",
+        "outputPath": "C:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\Mid_Assignment\\server\\Common\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\22nvh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\Mid_Assignment\\server\\LibraryManagement.Data\\LibraryManagement.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\Mid_Assignment\\server\\LibraryManagement.Data\\LibraryManagement.Data.csproj",
+        "projectName": "LibraryManagement.Data",
+        "projectPath": "C:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\Mid_Assignment\\server\\LibraryManagement.Data\\LibraryManagement.Data.csproj",
+        "packagesPath": "C:\\Users\\22nvh\\.nuget\\packages\\",
+        "outputPath": "C:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\Mid_Assignment\\server\\LibraryManagement.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\22nvh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\Mid_Assignment\\server\\Common\\Common.csproj": {
+                "projectPath": "C:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\Mid_Assignment\\server\\Common\\Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.10, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\Mid_Assignment\\server\\LibraryManagementWebAPI\\LibraryManagementWebAPI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\Mid_Assignment\\server\\LibraryManagementWebAPI\\LibraryManagementWebAPI.csproj",
+        "projectName": "LibraryManagementWebAPI",
+        "projectPath": "C:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\Mid_Assignment\\server\\LibraryManagementWebAPI\\LibraryManagementWebAPI.csproj",
+        "packagesPath": "C:\\Users\\22nvh\\.nuget\\packages\\",
+        "outputPath": "C:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\Mid_Assignment\\server\\LibraryManagementWebAPI\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\22nvh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\Mid_Assignment\\server\\LibraryManagement.Data\\LibraryManagement.Data.csproj": {
+                "projectPath": "C:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\Mid_Assignment\\server\\LibraryManagement.Data\\LibraryManagement.Data.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.10, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.2.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
