@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace LibraryManagementWebAPI.Controllers
 {
     [ApiController]
-    [Route("api/borrow-requests")]
+    [Route("api/book-borrowing-requests")]
     public class BookBorrowingRequestController : ControllerBase
     {
         private readonly IBookBorrowingRequestService _bookBorrowingRequestService;
@@ -55,7 +55,10 @@ namespace LibraryManagementWebAPI.Controllers
                 var limitCheckMessage =
                     await _bookBorrowingRequestService.CheckRequestLimit(requestModel);
 
-                if (!string.IsNullOrEmpty(limitCheckMessage)) return BadRequest(limitCheckMessage);
+                if (!string.IsNullOrEmpty(limitCheckMessage))
+                {
+                    return BadRequest(limitCheckMessage);
+                }
 
                 var result = await _bookBorrowingRequestService.CreateAsync(requestModel);
 

@@ -7,6 +7,6 @@ namespace LibraryManagementWebAPI.Models
     public class UserModel : BaseEntity<int>
     {
         [Required, MaxLength(50)]
-        public RolesEnum? Role { get; set; }
+        public RolesEnum Role { get; set; }
     }
 }

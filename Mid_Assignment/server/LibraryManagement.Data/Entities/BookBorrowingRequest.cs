@@ -19,7 +19,7 @@ namespace LibraryManagement.Data.Entities
         public DateTime DateRequested { get; set; }
         public int? StatusUpdateByUserId { get; set; }
         public virtual User? StatusUpdateBy { get; set; }
-        public DateTime DateUpdated { get; set; }
+        public DateTime? DateUpdated { get; set; }
         // public ICollection<BookBorrowingRequestDetails>? RequestDetails { get; set; }
         public ICollection<Book>? Books { get; set; }
     }
