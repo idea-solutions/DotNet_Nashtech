@@ -1,0 +1,18 @@
+.headerTable {
+    display: flex;
+    justify-content: space-between;
+}
+
+.searchTable {
+    width: 300;
+    float: 'left';
+    margin-right: 20px;
+}
+
+.msgError {
+    color: red;
+}
+
+.inputModal, .selectModal {
+    margin-top: 6px;
+}
