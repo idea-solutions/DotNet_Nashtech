@@ -24,7 +24,7 @@ namespace LibraryManagementWebAPI.Services.Implements
 
             if (bookBorrowingRequest == null) return null;
 
-            bookBorrowingRequest.Status = requestModel.IsUpdated
+            bookBorrowingRequest.Status = requestModel.IsApproved
                                                 ? RequestStatusEnum.Approved
                                                 : RequestStatusEnum.Rejected;
             bookBorrowingRequest.StatusUpdateByUserId = requestModel.StatusUpdateBy.Id;

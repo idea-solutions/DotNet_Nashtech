@@ -2,9 +2,12 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using LibraryManagementWebAPI.Models.DTOs.Book;
 using LibraryManagementWebAPI.Services.Interfaces;
+using Common.Enums;
+using LibraryManagementWebAPI.Attributes;
 
 namespace LibraryManagementWebAPI.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class BookController : Controller
@@ -16,7 +19,8 @@ namespace LibraryManagementWebAPI.Controllers
             _bookService = bookService;
         }
 
-        [HttpGet, AllowAnonymous]
+        [HttpGet]
+        [AuthorizeRoles(UserRoles.SuperUser, UserRoles.NormalUser)]
         public async Task<IActionResult> GetAllAsync()
         {
             try
@@ -32,6 +36,7 @@ namespace LibraryManagementWebAPI.Controllers
         }
 
         [HttpGet("{id}", Name = "GetByBookIdAsync")]
+        [AuthorizeRoles(UserRoles.SuperUser, UserRoles.NormalUser)]
         public async Task<IActionResult> GetByIdAsync(int id)
         {
             try
@@ -49,6 +54,7 @@ namespace LibraryManagementWebAPI.Controllers
         }
 
         [HttpPost]
+        [AuthorizeRoles(UserRoles.SuperUser)]
         public async Task<IActionResult> CreateAsync([FromBody] CreateBookRequest requestModel)
         {
             try
@@ -66,10 +72,10 @@ namespace LibraryManagementWebAPI.Controllers
         }
 
         [HttpPut]
+        [AuthorizeRoles(UserRoles.SuperUser)]
         public async Task<IActionResult> UpdateAsync([FromBody] UpdateBookRequest requestModel)
         {
 
-            // TODO: Check Exist
             var entity = await _bookService.GetByIdAsync(requestModel.Id);
 
             if (entity == null) return NotFound();
@@ -89,9 +95,9 @@ namespace LibraryManagementWebAPI.Controllers
         }
 
         [HttpDelete("{id}")]
+        [AuthorizeRoles(UserRoles.SuperUser)]
         public async Task<IActionResult> DeleteAsync(int id)
         {
-            // TODO: Check Exist
             var entity = await _bookService.GetByIdAsync(id);
 
             if (entity == null) return NotFound();

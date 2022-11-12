@@ -196,7 +196,7 @@ namespace LibraryManagement.Data.Migrations
                     b.Property<DateTime>("DateRequested")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("DateUpdated")
+                    b.Property<DateTime?>("DateUpdated")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("RequestedByUserId")
@@ -220,24 +220,21 @@ namespace LibraryManagement.Data.Migrations
                         new
                         {
                             Id = 1,
-                            DateRequested = new DateTime(2022, 11, 9, 13, 26, 18, 389, DateTimeKind.Local).AddTicks(3889),
-                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateRequested = new DateTime(2022, 11, 11, 17, 25, 13, 366, DateTimeKind.Local).AddTicks(312),
                             RequestedByUserId = 2,
                             Status = 0
                         },
                         new
                         {
                             Id = 2,
-                            DateRequested = new DateTime(2022, 11, 9, 13, 26, 18, 389, DateTimeKind.Local).AddTicks(3897),
-                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateRequested = new DateTime(2022, 11, 11, 17, 25, 13, 366, DateTimeKind.Local).AddTicks(322),
                             RequestedByUserId = 3,
                             Status = 0
                         },
                         new
                         {
                             Id = 3,
-                            DateRequested = new DateTime(2022, 11, 9, 13, 26, 18, 389, DateTimeKind.Local).AddTicks(3898),
-                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateRequested = new DateTime(2022, 11, 11, 17, 25, 13, 366, DateTimeKind.Local).AddTicks(323),
                             RequestedByUserId = 2,
                             Status = 1,
                             StatusUpdateByUserId = 1
@@ -245,8 +242,7 @@ namespace LibraryManagement.Data.Migrations
                         new
                         {
                             Id = 4,
-                            DateRequested = new DateTime(2022, 11, 9, 13, 26, 18, 389, DateTimeKind.Local).AddTicks(3899),
-                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateRequested = new DateTime(2022, 11, 11, 17, 25, 13, 366, DateTimeKind.Local).AddTicks(324),
                             RequestedByUserId = 3,
                             Status = -1,
                             StatusUpdateByUserId = 1
@@ -327,21 +323,21 @@ namespace LibraryManagement.Data.Migrations
                         {
                             Id = 1,
                             Password = "hoan1",
-                            Role = 1,
+                            Role = 0,
                             Username = "hoan1"
                         },
                         new
                         {
                             Id = 2,
                             Password = "hoan2",
-                            Role = 0,
+                            Role = 1,
                             Username = "hoan2"
                         },
                         new
                         {
                             Id = 3,
                             Password = "hoan3",
-                            Role = 0,
+                            Role = 1,
                             Username = "hoan3"
                         });
                 });

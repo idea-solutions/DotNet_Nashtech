@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\Mid_Assignment\\server\\LibraryManagementWebAPI\\LibraryManagementWebAPI.csproj": {}
+    "C:\\CustomProject\\TheRookies_Hoan\\DotNet_Nashtech\\Mid_Assignment\\server\\LibraryManagementWebAPI\\LibraryManagementWebAPI.csproj": {}
   },
   "projects": {
-    "C:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\Mid_Assignment\\server\\Common\\Common.csproj": {
+    "C:\\CustomProject\\TheRookies_Hoan\\DotNet_Nashtech\\Mid_Assignment\\server\\Common\\Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\Mid_Assignment\\server\\Common\\Common.csproj",
+        "projectUniqueName": "C:\\CustomProject\\TheRookies_Hoan\\DotNet_Nashtech\\Mid_Assignment\\server\\Common\\Common.csproj",
         "projectName": "Common",
-        "projectPath": "C:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\Mid_Assignment\\server\\Common\\Common.csproj",
+        "projectPath": "C:\\CustomProject\\TheRookies_Hoan\\DotNet_Nashtech\\Mid_Assignment\\server\\Common\\Common.csproj",
         "packagesPath": "C:\\Users\\22nvh\\.nuget\\packages\\",
-        "outputPath": "C:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\Mid_Assignment\\server\\Common\\obj\\",
+        "outputPath": "C:\\CustomProject\\TheRookies_Hoan\\DotNet_Nashtech\\Mid_Assignment\\server\\Common\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\22nvh\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -59,14 +59,14 @@
         }
       }
     },
-    "C:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\Mid_Assignment\\server\\LibraryManagement.Data\\LibraryManagement.Data.csproj": {
+    "C:\\CustomProject\\TheRookies_Hoan\\DotNet_Nashtech\\Mid_Assignment\\server\\LibraryManagement.Data\\LibraryManagement.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\Mid_Assignment\\server\\LibraryManagement.Data\\LibraryManagement.Data.csproj",
+        "projectUniqueName": "C:\\CustomProject\\TheRookies_Hoan\\DotNet_Nashtech\\Mid_Assignment\\server\\LibraryManagement.Data\\LibraryManagement.Data.csproj",
         "projectName": "LibraryManagement.Data",
-        "projectPath": "C:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\Mid_Assignment\\server\\LibraryManagement.Data\\LibraryManagement.Data.csproj",
+        "projectPath": "C:\\CustomProject\\TheRookies_Hoan\\DotNet_Nashtech\\Mid_Assignment\\server\\LibraryManagement.Data\\LibraryManagement.Data.csproj",
         "packagesPath": "C:\\Users\\22nvh\\.nuget\\packages\\",
-        "outputPath": "C:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\Mid_Assignment\\server\\LibraryManagement.Data\\obj\\",
+        "outputPath": "C:\\CustomProject\\TheRookies_Hoan\\DotNet_Nashtech\\Mid_Assignment\\server\\LibraryManagement.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\22nvh\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -83,8 +83,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\Mid_Assignment\\server\\Common\\Common.csproj": {
-                "projectPath": "C:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\Mid_Assignment\\server\\Common\\Common.csproj"
+              "C:\\CustomProject\\TheRookies_Hoan\\DotNet_Nashtech\\Mid_Assignment\\server\\Common\\Common.csproj": {
+                "projectPath": "C:\\CustomProject\\TheRookies_Hoan\\DotNet_Nashtech\\Mid_Assignment\\server\\Common\\Common.csproj"
               }
             }
           }
@@ -128,14 +128,14 @@
         }
       }
     },
-    "C:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\Mid_Assignment\\server\\LibraryManagementWebAPI\\LibraryManagementWebAPI.csproj": {
+    "C:\\CustomProject\\TheRookies_Hoan\\DotNet_Nashtech\\Mid_Assignment\\server\\LibraryManagementWebAPI\\LibraryManagementWebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\Mid_Assignment\\server\\LibraryManagementWebAPI\\LibraryManagementWebAPI.csproj",
+        "projectUniqueName": "C:\\CustomProject\\TheRookies_Hoan\\DotNet_Nashtech\\Mid_Assignment\\server\\LibraryManagementWebAPI\\LibraryManagementWebAPI.csproj",
         "projectName": "LibraryManagementWebAPI",
-        "projectPath": "C:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\Mid_Assignment\\server\\LibraryManagementWebAPI\\LibraryManagementWebAPI.csproj",
+        "projectPath": "C:\\CustomProject\\TheRookies_Hoan\\DotNet_Nashtech\\Mid_Assignment\\server\\LibraryManagementWebAPI\\LibraryManagementWebAPI.csproj",
         "packagesPath": "C:\\Users\\22nvh\\.nuget\\packages\\",
-        "outputPath": "C:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\Mid_Assignment\\server\\LibraryManagementWebAPI\\obj\\",
+        "outputPath": "C:\\CustomProject\\TheRookies_Hoan\\DotNet_Nashtech\\Mid_Assignment\\server\\LibraryManagementWebAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\22nvh\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -152,8 +152,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\Mid_Assignment\\server\\LibraryManagement.Data\\LibraryManagement.Data.csproj": {
-                "projectPath": "C:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\Mid_Assignment\\server\\LibraryManagement.Data\\LibraryManagement.Data.csproj"
+              "C:\\CustomProject\\TheRookies_Hoan\\DotNet_Nashtech\\Mid_Assignment\\server\\LibraryManagement.Data\\LibraryManagement.Data.csproj": {
+                "projectPath": "C:\\CustomProject\\TheRookies_Hoan\\DotNet_Nashtech\\Mid_Assignment\\server\\LibraryManagement.Data\\LibraryManagement.Data.csproj"
               }
             }
           }
@@ -168,6 +168,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[6.0.10, )"
+            },
+            "Microsoft.AspNetCore.Identity": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.10, )"
@@ -185,6 +193,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.25.0, )"
             }
           },
           "imports": [

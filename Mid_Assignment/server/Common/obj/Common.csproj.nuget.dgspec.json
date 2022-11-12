@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\Mid_Assignment\\server\\Common\\Common.csproj": {}
+    "C:\\CustomProject\\TheRookies_Hoan\\DotNet_Nashtech\\Mid_Assignment\\server\\Common\\Common.csproj": {}
   },
   "projects": {
-    "C:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\Mid_Assignment\\server\\Common\\Common.csproj": {
+    "C:\\CustomProject\\TheRookies_Hoan\\DotNet_Nashtech\\Mid_Assignment\\server\\Common\\Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\Mid_Assignment\\server\\Common\\Common.csproj",
+        "projectUniqueName": "C:\\CustomProject\\TheRookies_Hoan\\DotNet_Nashtech\\Mid_Assignment\\server\\Common\\Common.csproj",
         "projectName": "Common",
-        "projectPath": "C:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\Mid_Assignment\\server\\Common\\Common.csproj",
+        "projectPath": "C:\\CustomProject\\TheRookies_Hoan\\DotNet_Nashtech\\Mid_Assignment\\server\\Common\\Common.csproj",
         "packagesPath": "C:\\Users\\22nvh\\.nuget\\packages\\",
-        "outputPath": "C:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\Mid_Assignment\\server\\Common\\obj\\",
+        "outputPath": "C:\\CustomProject\\TheRookies_Hoan\\DotNet_Nashtech\\Mid_Assignment\\server\\Common\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\22nvh\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -5,7 +5,7 @@ namespace LibraryManagementWebAPI.Services.Interfaces
 {
     public interface IUserService
     {
-        Task<UserModel?> GetByIdAsync(int id);
-        Task<CreateUserResponse?> Authenticate(CreateUserRequest requestModel);
+        Task<UserModel?> GetByIdAsync(int? id);
+        Task<CreateUserResponse?> LoginUser(CreateUserRequest requestModel);
     }
 }

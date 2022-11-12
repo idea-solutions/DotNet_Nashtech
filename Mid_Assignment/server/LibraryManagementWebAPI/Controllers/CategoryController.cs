@@ -2,10 +2,13 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using LibraryManagementWebAPI.Models.DTOs.Category;
 using LibraryManagementWebAPI.Services.Interfaces;
+using LibraryManagementWebAPI.Attributes;
+using Common.Enums;
 
 namespace LibraryManagementWebAPI.Controllers
 {
     [ApiController]
+    [Authorize]
     [Route("api/[controller]")]
     public class CategoryController : ControllerBase
     {
@@ -15,7 +18,8 @@ namespace LibraryManagementWebAPI.Controllers
             _categoryService = categoryService;
         }
 
-        [HttpGet, AllowAnonymous]
+        [HttpGet]
+        [AuthorizeRoles(UserRoles.SuperUser, UserRoles.NormalUser)]
         public async Task<IActionResult> GetAllAsync()
         {
             try
@@ -31,6 +35,7 @@ namespace LibraryManagementWebAPI.Controllers
         }
 
         [HttpGet("{id}", Name = "GetByCategoryIdAsync")]
+        [AuthorizeRoles(UserRoles.SuperUser, UserRoles.NormalUser)]
         public async Task<IActionResult> GetByIdAsync(int id)
         {
             try
@@ -48,6 +53,7 @@ namespace LibraryManagementWebAPI.Controllers
         }
 
         [HttpPost]
+        [AuthorizeRoles(UserRoles.SuperUser)]
         public async Task<IActionResult> CreateAsync([FromBody] CreateCategoryRequest requestModel)
         {
             try
@@ -65,10 +71,9 @@ namespace LibraryManagementWebAPI.Controllers
         }
 
         [HttpPut]
+        [AuthorizeRoles(UserRoles.SuperUser)]
         public async Task<IActionResult> UpdateAsync([FromBody] UpdateCategoryRequest requestModel)
         {
-
-            // TODO: Check Exist
             var entity = await _categoryService.GetByIdAsync(requestModel.Id);
 
             if (entity == null) return NotFound();
@@ -88,9 +93,9 @@ namespace LibraryManagementWebAPI.Controllers
         }
 
         [HttpDelete("{id}")]
+        [AuthorizeRoles(UserRoles.SuperUser)]
         public async Task<IActionResult> DeleteAsync(int id)
         {
-            // TODO: Check Exist
             var entity = await _categoryService.GetByIdAsync(id);
 
             if (entity == null) return NotFound();

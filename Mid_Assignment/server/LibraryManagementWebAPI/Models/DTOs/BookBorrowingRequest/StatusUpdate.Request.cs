@@ -9,7 +9,7 @@ namespace LibraryManagementWebAPI.Models.DTOs.BookBorrowingRequest
         public int Id { get; set; }
 
         [Required]
-        public bool IsUpdated { get; set; }
+        public bool IsApproved { get; set; }
 
         [JsonIgnore] 
         public UserModel? StatusUpdateBy { get; set; }
