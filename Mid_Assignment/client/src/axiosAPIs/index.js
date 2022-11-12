@@ -1,12 +1,17 @@
 import axios from 'axios';
-const BASE_URL = 'https://localhost:7233/api';
+import { BASE_URL, TOKEN_KEY } from '../constants';
+
 export const CATEGORY = 'category';
 export const BOOK = 'book';
 
 export const getAllData = async (url) => {
   let data = [];
-  await axios
-    .get(`${BASE_URL}/${url}`)
+  await axios({
+    method: 'get',
+    url: `${BASE_URL}/${url}`,
+    headers: { Authorization: `Bearer ${localStorage.getItem(TOKEN_KEY)}` },
+    data: null,
+  })
     .then((response) => {
       data = [...response.data];
     })
@@ -18,8 +23,12 @@ export const getAllData = async (url) => {
 
 export const deleteData = async (url, id) => {
   let data = [];
-  await axios
-    .delete(`${BASE_URL}/${url}/${id}`)
+  await axios({
+    method: 'delete',
+    url: `${BASE_URL}/${url}/${id}`,
+    headers: { Authorization: `Bearer ${localStorage.getItem(TOKEN_KEY)}` },
+    data: null,
+  })
     .then((response) => {
       data = [...response.data];
     })
@@ -31,8 +40,12 @@ export const deleteData = async (url, id) => {
 
 export const createData = async (url, data) => {
   let response = [];
-  await axios
-    .post(`${BASE_URL}/${url}`, data)
+  await axios({
+    method: 'post',
+    url: `${BASE_URL}/${url}`,
+    headers: { Authorization: `Bearer ${localStorage.getItem(TOKEN_KEY)}` },
+    data: data,
+  })
     .then((res) => {
       response = [...res.data];
     })
@@ -44,8 +57,12 @@ export const createData = async (url, data) => {
 
 export const updateData = async (url, data) => {
   let response = [];
-  await axios
-    .put(`${BASE_URL}/${url}`, data)
+  await axios({
+    method: 'put',
+    url: `${BASE_URL}/${url}`,
+    headers: { Authorization: `Bearer ${localStorage.getItem(TOKEN_KEY)}` },
+    data: data,
+  })
     .then((res) => {
       response = [...res.data];
     })

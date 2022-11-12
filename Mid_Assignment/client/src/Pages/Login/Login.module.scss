@@ -1,0 +1,13 @@
+.loginPage {
+  padding: 112px 0 24px;
+  min-height: 100%;
+  height: calc(100vh - 72px);
+  .loginForm {
+    width: 368px;
+    margin: 0 auto;
+    text-align: center;
+    .header {
+      margin: 0 0 24px 0;
+    }
+  }
+}

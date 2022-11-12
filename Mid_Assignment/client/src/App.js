@@ -19,12 +19,6 @@ const App = () => {
         {
           path: '/categories',
           element: <Categories />,
-          // children: [
-          //   {
-          //     index: true,
-          //     element: <Categories />,
-          //   },
-          // ],
         },
         {
           path: '/books',
@@ -34,10 +28,6 @@ const App = () => {
           path: '/login',
           element: <Login />,
         },
-        // {
-        //   path: '/logout',
-        //   element: <Logout />,
-        // },
       ],
     },
   ]);
