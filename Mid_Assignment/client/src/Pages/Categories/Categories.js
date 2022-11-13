@@ -69,7 +69,6 @@ const Categories = () => {
     setPacientes(newPacientes);
   }, [dataState, searchValue]);
 
-  console.log('dataState', dataState);
   const handleDelete = async (record) => {
     await deleteData(CATEGORY, record.id);
     getData();

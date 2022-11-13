@@ -185,8 +185,6 @@ const Books = () => {
     setPacientes(newPacientes);
   }, [dataBooks, searchValue]);
 
-  console.log('dataBooks', dataBooks);
-
   const handleDelete = async (record) => {
     await deleteData(BOOK, record.id);
     getData();
