@@ -86,7 +86,7 @@ namespace LibraryManagement.Data.Migrations
                     RequestedByUserId = table.Column<int>(type: "int", nullable: false),
                     DateRequested = table.Column<DateTime>(type: "datetime2", nullable: false),
                     StatusUpdateByUserId = table.Column<int>(type: "int", nullable: true),
-                    DateUpdated = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    DateUpdated = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -156,9 +156,9 @@ namespace LibraryManagement.Data.Migrations
                 columns: new[] { "Id", "Password", "Role", "Username" },
                 values: new object[,]
                 {
-                    { 1, "hoan1", 1, "hoan1" },
-                    { 2, "hoan2", 0, "hoan2" },
-                    { 3, "hoan3", 0, "hoan3" }
+                    { 1, "hoan1", 0, "hoan1" },
+                    { 2, "hoan2", 1, "hoan2" },
+                    { 3, "hoan3", 1, "hoan3" }
                 });
 
             migrationBuilder.InsertData(
@@ -166,10 +166,8 @@ namespace LibraryManagement.Data.Migrations
                 columns: new[] { "Id", "DateRequested", "DateUpdated", "RequestedByUserId", "Status", "StatusUpdateByUserId" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2022, 11, 9, 13, 26, 18, 389, DateTimeKind.Local).AddTicks(3889), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 0, null },
-                    { 2, new DateTime(2022, 11, 9, 13, 26, 18, 389, DateTimeKind.Local).AddTicks(3897), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, 0, null },
-                    { 3, new DateTime(2022, 11, 9, 13, 26, 18, 389, DateTimeKind.Local).AddTicks(3898), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 1, 1 },
-                    { 4, new DateTime(2022, 11, 9, 13, 26, 18, 389, DateTimeKind.Local).AddTicks(3899), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, -1, 1 }
+                    { 1, new DateTime(2022, 11, 13, 10, 20, 54, 859, DateTimeKind.Local).AddTicks(117), null, 2, 0, null },
+                    { 2, new DateTime(2022, 11, 13, 10, 20, 54, 859, DateTimeKind.Local).AddTicks(134), null, 2, 1, 1 }
                 });
 
             migrationBuilder.InsertData(
@@ -190,16 +188,12 @@ namespace LibraryManagement.Data.Migrations
             migrationBuilder.InsertData(
                 table: "BookBorrowingRequestDetails",
                 columns: new[] { "BookBorrowingRequestId", "BooksId" },
-                values: new object[,]
-                {
-                    { 1, 1 },
-                    { 1, 2 },
-                    { 1, 3 },
-                    { 1, 4 },
-                    { 2, 2 },
-                    { 2, 4 },
-                    { 3, 1 }
-                });
+                values: new object[] { 1, 1 });
+
+            migrationBuilder.InsertData(
+                table: "BookBorrowingRequestDetails",
+                columns: new[] { "BookBorrowingRequestId", "BooksId" },
+                values: new object[] { 1, 2 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_BookBorrowingRequest_RequestedByUserId",

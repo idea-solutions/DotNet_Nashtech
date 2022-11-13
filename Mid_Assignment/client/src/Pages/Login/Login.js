@@ -11,7 +11,6 @@ const Login = () => {
   const { setAuth } = useContext(AuthContext);
   const navigate = useNavigate();
   const onFinish = async (values) => {
-    console.log('Received values of form: ', values);
     const token = await logIn(values);
     setAuth(token);
     navigate('/');

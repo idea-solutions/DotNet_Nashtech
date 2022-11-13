@@ -5,6 +5,7 @@ import Login from './Pages/Login/Login';
 import Categories from './Pages/Categories/Categories';
 import './styles/index.scss';
 import Books from './Pages/Books/Books';
+import BorrowBooks from './Pages/BorrowBooks/BorrowBooks';
 
 const App = () => {
   const router = createBrowserRouter([
@@ -23,6 +24,10 @@ const App = () => {
         {
           path: '/books',
           element: <Books />,
+        },
+        {
+          path: '/borrow-books',
+          element: <BorrowBooks />,
         },
         {
           path: '/login',

@@ -1,9 +1,6 @@
 import axios from 'axios';
 import { BASE_URL, TOKEN_KEY } from '../constants';
 
-export const CATEGORY = 'category';
-export const BOOK = 'book';
-
 export const getAllData = async (url) => {
   let data = [];
   await axios({
@@ -50,7 +47,7 @@ export const createData = async (url, data) => {
       response = [...res.data];
     })
     .catch((err) => {
-      console.log({ err });
+      response = err;
     });
   return response;
 };

@@ -10,7 +10,7 @@ export async function logIn(loginInfo) {
     .post(url, loginInfo)
     .then((result) => {
       response = result.data;
-      localStorage.setItem(TOKEN_KEY, response);
+      localStorage.setItem(TOKEN_KEY, response.token);
     })
     .catch((error) => {
       console.log({ error });

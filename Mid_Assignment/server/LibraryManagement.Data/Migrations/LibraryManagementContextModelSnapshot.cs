@@ -46,31 +46,6 @@ namespace LibraryManagement.Data.Migrations
                         {
                             BookBorrowingRequestId = 1,
                             BooksId = 2
-                        },
-                        new
-                        {
-                            BookBorrowingRequestId = 1,
-                            BooksId = 3
-                        },
-                        new
-                        {
-                            BookBorrowingRequestId = 2,
-                            BooksId = 4
-                        },
-                        new
-                        {
-                            BookBorrowingRequestId = 1,
-                            BooksId = 4
-                        },
-                        new
-                        {
-                            BookBorrowingRequestId = 2,
-                            BooksId = 2
-                        },
-                        new
-                        {
-                            BookBorrowingRequestId = 3,
-                            BooksId = 1
                         });
                 });
 
@@ -220,31 +195,16 @@ namespace LibraryManagement.Data.Migrations
                         new
                         {
                             Id = 1,
-                            DateRequested = new DateTime(2022, 11, 11, 17, 25, 13, 366, DateTimeKind.Local).AddTicks(312),
+                            DateRequested = new DateTime(2022, 11, 13, 10, 20, 54, 859, DateTimeKind.Local).AddTicks(117),
                             RequestedByUserId = 2,
                             Status = 0
                         },
                         new
                         {
                             Id = 2,
-                            DateRequested = new DateTime(2022, 11, 11, 17, 25, 13, 366, DateTimeKind.Local).AddTicks(322),
-                            RequestedByUserId = 3,
-                            Status = 0
-                        },
-                        new
-                        {
-                            Id = 3,
-                            DateRequested = new DateTime(2022, 11, 11, 17, 25, 13, 366, DateTimeKind.Local).AddTicks(323),
+                            DateRequested = new DateTime(2022, 11, 13, 10, 20, 54, 859, DateTimeKind.Local).AddTicks(134),
                             RequestedByUserId = 2,
                             Status = 1,
-                            StatusUpdateByUserId = 1
-                        },
-                        new
-                        {
-                            Id = 4,
-                            DateRequested = new DateTime(2022, 11, 11, 17, 25, 13, 366, DateTimeKind.Local).AddTicks(324),
-                            RequestedByUserId = 3,
-                            Status = -1,
                             StatusUpdateByUserId = 1
                         });
                 });

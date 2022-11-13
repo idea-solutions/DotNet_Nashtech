@@ -6,6 +6,6 @@ namespace LibraryManagementWebAPI.Models.DTOs.User
         public string? Username { get; set; }
         public string? Role { get; set; }
 
-        // TODO: Token
+        public string? Token { get; set; }
     }
 }

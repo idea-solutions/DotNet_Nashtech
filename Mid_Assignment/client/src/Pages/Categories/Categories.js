@@ -1,10 +1,11 @@
-import { Button, Space, Table, Input, Modal } from 'antd';
+import { Button, Input, Modal, Space, Table } from 'antd';
 import { Content } from 'antd/lib/layout/layout';
-
-import React, { useEffect, useState } from 'react';
-import { CATEGORY, createData, deleteData, getAllData, updateData } from '../../axiosAPIs';
-import styles from './Categories.module.scss';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
+import React, { useContext, useEffect, useState } from 'react';
+import { createData, deleteData, getAllData, updateData } from '../../axiosAPIs';
+import { CATEGORY } from '../../constants';
+import AuthContext from '../../contexts/AuthContext';
+import styles from './Categories.module.scss';
 
 const Categories = () => {
   const [dataState, setDataState] = useState([]);
@@ -24,6 +25,8 @@ const Categories = () => {
   useEffect(() => {
     getData();
   }, []);
+
+  const { auth } = useContext(AuthContext);
 
   const columns = [
     {
@@ -50,8 +53,9 @@ const Categories = () => {
           </Button>
         </Space>
       ),
+      hidden: auth?.role === 'SuperUser' ? false : true,
     },
-  ];
+  ].filter((column) => !column.hidden);
 
   const onSearch = (value) => console.log(value);
 
@@ -149,9 +153,11 @@ const Categories = () => {
             <h1>List Category</h1>
             <div className="d-flex">
               <Input.Search placeholder="input search" allowClear onSearch={onSearch} className={styles.searchTable} />
-              <Button type="primary" onClick={showModalAdd}>
-                Add
-              </Button>
+              {auth?.role === 'SuperUser' && (
+                <Button type="primary" onClick={showModalAdd}>
+                  Add
+                </Button>
+              )}
             </div>
           </div>
           <Table rowKey={(dataState) => dataState.id} columns={columns} dataSource={dataState} />

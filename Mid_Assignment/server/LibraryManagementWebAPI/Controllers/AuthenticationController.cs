@@ -33,13 +33,13 @@ namespace LibraryManagementWebAPI.Controllers
                     return BadRequest("Username or password is incorrect!");
 
                 var claims = new Claim[]
-                                {
-                    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                    new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString()),
-                    new Claim(ClaimTypes.Role, user.Role.ToString()),
-                    new Claim("Id", user.Id.ToString()),
-                    new Claim("Username", user.Username)
-                                };
+                    {
+                        new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                        new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString()),
+                        new Claim(ClaimTypes.Role, user.Role.ToString()),
+                        new Claim("Id", user.Id.ToString()),
+                        new Claim("Username", user.Username)
+                    };
 
                 var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JwtConstant.Key));
 
@@ -55,7 +55,13 @@ namespace LibraryManagementWebAPI.Controllers
 
                 var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
 
-                return Ok(tokenString);
+                return Ok(new CreateUserResponse
+                {
+                    Id = user.Id,
+                    Username = user.Username,
+                    Role = user.Role.ToString(),
+                    Token = tokenString
+                });
             }
             catch (Exception ex)
             {

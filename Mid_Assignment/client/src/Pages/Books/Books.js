@@ -1,13 +1,15 @@
-import { Button, Space, Table, Input, Modal, Tag, Select } from 'antd';
+import { Button, Space, Table, Input, Modal, Tag, Select, Checkbox } from 'antd';
 import { Content } from 'antd/lib/layout/layout';
 
-import React, { useEffect, useState } from 'react';
-import { BOOK, CATEGORY, createData, deleteData, getAllData, updateData } from '../../axiosAPIs';
+import React, { useContext, useEffect, useState } from 'react';
+import { createData, deleteData, getAllData, updateData } from '../../axiosAPIs';
 import styles from './Books.module.scss';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
+import AuthContext from '../../contexts/AuthContext';
+import { BOOK, BORROW_BOOKS, CATEGORY } from '../../constants';
 
 const Books = () => {
-  const [dataState, setDataState] = useState('');
+  const [dataBooks, setDataBooks] = useState('');
   const [dataAdd, setDataAdd] = useState({
     name: '',
     author: '',
@@ -25,11 +27,20 @@ const Books = () => {
   const [buttonDisabled, setButtonDisabled] = useState(true);
   const [isModalOpenAdd, setIsModalOpenAdd] = useState(false);
   const [isModalOpenUpdate, setIsModalOpenUpdate] = useState(false);
+  const { auth } = useContext(AuthContext);
+
   const { confirm } = Modal;
 
+  const [dataCategories, setDataCategories] = useState([]);
+  const [dataBorrowBooks, setDataBorrowBooks] = useState([]);
+
   const getData = async () => {
-    const data = await getAllData(BOOK);
-    setDataState(data);
+    const dataBook = await getAllData(BOOK);
+    const dataCategory = await getAllData(CATEGORY);
+    const dataBorrowBook = await getAllData(BORROW_BOOKS);
+    setDataBooks(dataBook);
+    setDataCategories(dataCategory);
+    setDataBorrowBooks(dataBorrowBook);
   };
 
   useEffect(() => {
@@ -93,8 +104,75 @@ const Books = () => {
           </Button>
         </Space>
       ),
+      hidden: auth?.role === 'SuperUser' ? false : true,
     },
-  ];
+    {
+      title: 'Borrow Books',
+      key: 'borrow-books',
+      render: (_, record) => (
+        <>
+          <Space size="middle">
+            {booksId?.includes(record.id) ? (
+              <Checkbox
+                checked={booksId?.includes(record.id)}
+                disabled={booksId?.includes(record.id)}
+                onChange={() => onChangeCheckbox(record.id)}
+              >
+                Borrow
+              </Checkbox>
+            ) : (
+              <Checkbox onChange={() => onChangeCheckbox(record.id)}>Borrow</Checkbox>
+            )}
+          </Space>
+        </>
+      ),
+      hidden: auth?.role === 'SuperUser' ? true : false,
+    },
+  ].filter((column) => !column.hidden);
+
+  const [idsSelectArr, setIdsSelectArr] = useState([]);
+
+  const onChangeCheckbox = (id) => {
+    if (idsSelectArr.includes(id)) {
+      setIdsSelectArr(idsSelectArr.filter((idSelect) => idSelect !== id));
+    } else {
+      setIdsSelectArr([...idsSelectArr, id]);
+    }
+  };
+
+  const [booksId, setBooksId] = useState([]);
+
+  useEffect(() => {
+    const borrowBooksArr = dataBorrowBooks.filter((borrowBook) => borrowBook.requestedBy.id === auth?.id);
+
+    const id = Array.from(
+      new Set(
+        borrowBooksArr
+          .filter((a) => a.status === 'Approved')
+          .map((x) => x.books)
+          .map((book) => book.map((b) => b.id))
+          .flat(),
+      ),
+    );
+    setBooksId(id);
+  }, [auth, auth?.id, dataBorrowBooks]);
+
+  const [msg, setMsg] = useState('');
+  const handleBorrowBooks = async () => {
+    const res = await createData(BORROW_BOOKS, { BookIds: idsSelectArr });
+
+    if (res.code === 'ERR_BAD_REQUEST') {
+      setMsg(res.response.data);
+    } else {
+      setMsg('Borrowing book successfully, waiting for approval');
+    }
+
+    getData();
+  };
+
+  useEffect(() => {
+    if (msg !== '') alert(msg);
+  }, [msg]);
 
   const onSearch = (value) => console.log(value);
 
@@ -214,140 +292,133 @@ const Books = () => {
     setDataUpdate({ ...dataUpdate, categoryIds: value });
   };
 
-  console.log({ dataUpdate });
-  const [dataCategories, setDataCategories] = useState([]);
-  const getAllCategory = async () => {
-    const data = await getAllData(CATEGORY);
-    setDataCategories(data);
-  };
-
-  useEffect(() => {
-    getAllCategory();
-  }, []);
-
   const options = dataCategories.map((category) => {
     return { label: category.name, value: category.id };
   });
 
   return (
-    <>
-      <Content className="container">
-        <Space direction="vertical" size="middle" style={{ display: 'flex' }}>
-          {' '}
-          <div className={styles.headerTable}>
-            <h1>List Book</h1>
-            <div className="d-flex">
-              <Input.Search placeholder="input search" allowClear onSearch={onSearch} className={styles.searchTable} />
+    <Content className="container">
+      <Space direction="vertical" size="middle" style={{ display: 'flex' }}>
+        {' '}
+        <div className={styles.headerTable}>
+          <h1>List Book</h1>
+          <div className="d-flex">
+            <Input.Search placeholder="input search" allowClear onSearch={onSearch} className={styles.searchTable} />
+            {auth?.role === 'SuperUser' ? (
               <Button type="primary" onClick={showModalAdd}>
                 Add
               </Button>
-            </div>
+            ) : (
+              <Button type="primary" onClick={handleBorrowBooks}>
+                Borrow Books
+              </Button>
+            )}
           </div>
-          <Table rowKey={(dataState) => dataState.id} columns={columns} dataSource={dataState} />
-        </Space>
+        </div>
+        <Table rowKey={(dataState) => dataState.id} columns={columns} dataSource={dataBooks} />
+      </Space>
 
-        <Modal
-          title="Create Book"
-          open={isModalOpenAdd}
-          onOk={handleOkAdd}
-          okButtonProps={{ disabled: buttonDisabled }}
-          onCancel={handleCancelAdd}
-          destroyOnClose={true}
-        >
-          <Input
-            className={styles.inputModal}
-            placeholder="Name"
-            name="name"
-            onBlur={handleBlurAdd}
-            onChange={handleChangeAdd}
-          />
-          {error.name && <p className={styles.msgError}>{error.name}</p>}
-          <Input
-            className={styles.inputModal}
-            placeholder="Author"
-            name="author"
-            onBlur={handleBlurAdd}
-            onChange={handleChangeAdd}
-          />
-          {error.author && <p className={styles.msgError}>{error.author}</p>}
-          <Input
-            className={styles.inputModal}
-            placeholder="Summary"
-            name="summary"
-            onBlur={handleBlurAdd}
-            onChange={handleChangeAdd}
-          />
-          {error.summary && <p className={styles.msgError}>{error.summary}</p>}
-          <Select
-            mode="multiple"
-            allowClear
-            style={{
-              width: '100%',
-            }}
-            onBlur={handleBlurAdd}
-            className={styles.selectModal}
-            name="categoryIds"
-            placeholder="Please select categories"
-            defaultValue={options[0] ? [options[0]] : []}
-            onChange={handleChangeSelectAdd}
-            options={options}
-          />
-          {error.categoryIds && <p className={styles.msgError}>{error.categoryIds}</p>}
-        </Modal>
+      <Modal
+        title="Create Book"
+        open={isModalOpenAdd}
+        onOk={handleOkAdd}
+        okButtonProps={{ disabled: buttonDisabled }}
+        onCancel={handleCancelAdd}
+        destroyOnClose={true}
+      >
+        <Input
+          className={styles.inputModal}
+          placeholder="Name"
+          name="name"
+          onBlur={handleBlurAdd}
+          onChange={handleChangeAdd}
+        />
+        {error.name && <p className={styles.msgError}>{error.name}</p>}
+        <Input
+          className={styles.inputModal}
+          placeholder="Author"
+          name="author"
+          onBlur={handleBlurAdd}
+          onChange={handleChangeAdd}
+        />
+        {error.author && <p className={styles.msgError}>{error.author}</p>}
+        <Input
+          className={styles.inputModal}
+          placeholder="Summary"
+          name="summary"
+          onBlur={handleBlurAdd}
+          onChange={handleChangeAdd}
+        />
+        {error.summary && <p className={styles.msgError}>{error.summary}</p>}
+        <Select
+          mode="multiple"
+          allowClear
+          style={{
+            width: '100%',
+          }}
+          onBlur={handleBlurAdd}
+          className={styles.selectModal}
+          name="categoryIds"
+          placeholder="Please select categories"
+          defaultValue={options[0] ? [options[0]] : []}
+          onChange={handleChangeSelectAdd}
+          options={options}
+        />
+        {error.categoryIds && <p className={styles.msgError}>{error.categoryIds}</p>}
+      </Modal>
 
-        <Modal
-          title="Update Book"
-          open={isModalOpenUpdate}
-          onOk={handleOkUpdate}
-          okButtonProps={{ disabled: buttonDisabled }}
-          onCancel={handleCancelUpdate}
-          destroyOnClose={true}
-        >
-          <Input
-            className={styles.inputModal}
-            placeholder="Name"
-            name="name"
-            value={dataUpdate.name}
-            onBlur={handleBlurUpdate}
-            onChange={handleChangeUpdate}
-          />
-          {error.name && <p className={styles.msgError}>{error.name}</p>}
-          <Input
-            className={styles.inputModal}
-            placeholder="Author"
-            value={dataUpdate.author}
-            name="author"
-            onBlur={handleBlurUpdate}
-            onChange={handleChangeUpdate}
-          />
-          {error.author && <p className={styles.msgError}>{error.author}</p>}
-          <Input
-            className={styles.inputModal}
-            placeholder="Summary"
-            value={dataUpdate.summary}
-            name="summary"
-            onBlur={handleBlurUpdate}
-            onChange={handleChangeUpdate}
-          />
-          {error.summary && <p className={styles.msgError}>{error.summary}</p>}
-          <Select
-            mode="multiple"
-            allowClear
-            style={{
-              width: '100%',
-            }}
-            onBlur={handleBlurUpdate}
-            className={styles.selectModal}
-            name="categoryIds"
-            placeholder="Please select categories"
-            defaultValue={dataUpdate.categoryIds}
-            onChange={handleChangeSelectUpdate}
-            options={options}
-          />
-          {error.categoryIds && <p className={styles.msgError}>{error.categoryIds}</p>}
-        </Modal>
-      </Content>
-    </>
+      <Modal
+        title="Update Book"
+        open={isModalOpenUpdate}
+        onOk={handleOkUpdate}
+        okButtonProps={{ disabled: buttonDisabled }}
+        onCancel={handleCancelUpdate}
+        destroyOnClose={true}
+      >
+        <Input
+          className={styles.inputModal}
+          placeholder="Name"
+          name="name"
+          value={dataUpdate.name}
+          onBlur={handleBlurUpdate}
+          onChange={handleChangeUpdate}
+        />
+        {error.name && <p className={styles.msgError}>{error.name}</p>}
+        <Input
+          className={styles.inputModal}
+          placeholder="Author"
+          value={dataUpdate.author}
+          name="author"
+          onBlur={handleBlurUpdate}
+          onChange={handleChangeUpdate}
+        />
+        {error.author && <p className={styles.msgError}>{error.author}</p>}
+        <Input
+          className={styles.inputModal}
+          placeholder="Summary"
+          value={dataUpdate.summary}
+          name="summary"
+          onBlur={handleBlurUpdate}
+          onChange={handleChangeUpdate}
+        />
+        {error.summary && <p className={styles.msgError}>{error.summary}</p>}
+        <Select
+          mode="multiple"
+          allowClear
+          style={{
+            width: '100%',
+          }}
+          onBlur={handleBlurUpdate}
+          className={styles.selectModal}
+          name="categoryIds"
+          placeholder="Please select categories"
+          defaultValue={dataUpdate.categoryIds}
+          onChange={handleChangeSelectUpdate}
+          options={options}
+        />
+        {error.categoryIds && <p className={styles.msgError}>{error.categoryIds}</p>}
+      </Modal>
+    </Content>
   );
 };
 

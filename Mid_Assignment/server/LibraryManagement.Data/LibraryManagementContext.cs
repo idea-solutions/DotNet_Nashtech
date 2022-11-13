@@ -119,26 +119,11 @@ namespace LibraryManagement.Data
                 new BookBorrowingRequest
                 {
                     Id = 2,
-                    Status=RequestStatusEnum.Waiting,
-                    RequestedByUserId = 3,
-                    DateRequested = DateTime.Now
-                },
-                new BookBorrowingRequest
-                {
-                    Id = 3,
                     Status=RequestStatusEnum.Approved,
                     RequestedByUserId = 2,
                     DateRequested = DateTime.Now,
                     StatusUpdateByUserId = 1
-                },
-                new BookBorrowingRequest
-                {
-                    Id = 4,
-                    Status=RequestStatusEnum.Rejected,
-                    RequestedByUserId = 3,
-                    DateRequested = DateTime.Now,
-                    StatusUpdateByUserId = 1
-                },
+                }
             };
 
             modelBuilder.Entity<User>()
@@ -158,12 +143,7 @@ namespace LibraryManagement.Data
                         .WithMany(c => c.Books)
                         .UsingEntity(b => b.HasData(
                             new { BookBorrowingRequestId = 1, BooksId = 1 },
-                            new { BookBorrowingRequestId = 1, BooksId = 2 },
-                            new { BookBorrowingRequestId = 1, BooksId = 3 },
-                            new { BookBorrowingRequestId = 2, BooksId = 4 },
-                            new { BookBorrowingRequestId = 1, BooksId = 4 },
-                            new { BookBorrowingRequestId = 2, BooksId = 2 },
-                            new { BookBorrowingRequestId = 3, BooksId = 1 }
+                            new { BookBorrowingRequestId = 1, BooksId = 2 }
                         ));
 
             modelBuilder.Entity<Book>()

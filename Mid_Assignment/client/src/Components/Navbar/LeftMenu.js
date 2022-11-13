@@ -8,6 +8,7 @@ const LeftMenu = () => {
   const { md } = useBreakpoint();
   const { auth } = useContext(AuthContext);
 
+  console.log('auth', auth);
   const items = [
     {
       label: <Link to={'/'}>Home</Link>,
@@ -22,8 +23,9 @@ const LeftMenu = () => {
       key: 'books',
     },
     {
-      label: <Link to={auth === undefined ? '/' : '/profile'}>Profile</Link>,
-      key: 'profile',
+      label: <Link to={auth !== undefined && auth?.role === 'SuperUser' ? '/borrow-books' : '/'}>Borrow Books</Link>,
+      key: 'borrow-books',
+      hidden: auth?.role === 'SuperUser' ? false : true,
     },
   ];
   return <Menu mode={md ? 'horizontal' : 'inline'} items={items} />;

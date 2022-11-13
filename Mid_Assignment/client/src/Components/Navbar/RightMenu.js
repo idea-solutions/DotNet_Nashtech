@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Menu, Grid } from 'antd';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import AuthContext from '../../contexts/AuthContext';
 import { TOKEN_KEY } from '../../constants';
 
@@ -9,14 +9,14 @@ const { useBreakpoint } = Grid;
 const RightMenu = () => {
   const { md } = useBreakpoint();
 
+  const navigate = useNavigate();
   const { auth, setAuth } = useContext(AuthContext);
 
   const onLogOut = () => {
     localStorage.removeItem(TOKEN_KEY);
     setAuth(undefined);
+    navigate('/');
   };
-
-  console.log('auth', auth);
 
   const items = [
     {
