@@ -9,7 +9,7 @@ import AuthContext from '../../contexts/AuthContext';
 import { BOOK, BORROW_BOOKS, CATEGORY } from '../../constants';
 
 const Books = () => {
-  const [dataBooks, setDataBooks] = useState('');
+  const [dataBooks, setDataBooks] = useState([]);
   const [dataAdd, setDataAdd] = useState({
     name: '',
     author: '',
@@ -112,10 +112,10 @@ const Books = () => {
       render: (_, record) => (
         <>
           <Space size="middle">
-            {booksId?.includes(record.id) ? (
+            {booksBorrowId?.includes(record.id) ? (
               <Checkbox
-                checked={booksId?.includes(record.id)}
-                disabled={booksId?.includes(record.id)}
+                checked={booksBorrowId?.includes(record.id)}
+                disabled={booksBorrowId?.includes(record.id)}
                 onChange={() => onChangeCheckbox(record.id)}
               >
                 Borrow
@@ -140,11 +140,10 @@ const Books = () => {
     }
   };
 
-  const [booksId, setBooksId] = useState([]);
+  const [booksBorrowId, setBooksBorrowId] = useState([]);
 
   useEffect(() => {
     const borrowBooksArr = dataBorrowBooks.filter((borrowBook) => borrowBook.requestedBy.id === auth?.id);
-
     const id = Array.from(
       new Set(
         borrowBooksArr
@@ -154,7 +153,7 @@ const Books = () => {
           .flat(),
       ),
     );
-    setBooksId(id);
+    setBooksBorrowId(id);
   }, [auth, auth?.id, dataBorrowBooks]);
 
   const [msg, setMsg] = useState('');
@@ -174,7 +173,19 @@ const Books = () => {
     if (msg !== '') alert(msg);
   }, [msg]);
 
-  const onSearch = (value) => console.log(value);
+  const [searchValue, setSearchValue] = useState('');
+  const [pacientes, setPacientes] = useState('');
+
+  const onSearch = (value) => {
+    setSearchValue(value);
+  };
+
+  useEffect(() => {
+    const newPacientes = dataBooks?.filter((value) => value.name.toLowerCase().includes(searchValue.toLowerCase()));
+    setPacientes(newPacientes);
+  }, [dataBooks, searchValue]);
+
+  console.log('dataBooks', dataBooks);
 
   const handleDelete = async (record) => {
     await deleteData(BOOK, record.id);
@@ -303,7 +314,7 @@ const Books = () => {
         <div className={styles.headerTable}>
           <h1>List Book</h1>
           <div className="d-flex">
-            <Input.Search placeholder="input search" allowClear onSearch={onSearch} className={styles.searchTable} />
+            <Input.Search placeholder="search name books" allowClear onSearch={onSearch} className={styles.searchTable} />
             {auth?.role === 'SuperUser' ? (
               <Button type="primary" onClick={showModalAdd}>
                 Add
@@ -315,7 +326,7 @@ const Books = () => {
             )}
           </div>
         </div>
-        <Table rowKey={(dataState) => dataState.id} columns={columns} dataSource={dataBooks} />
+        <Table rowKey={(dataState) => dataState.id} columns={columns} dataSource={pacientes} />
       </Space>
 
       <Modal

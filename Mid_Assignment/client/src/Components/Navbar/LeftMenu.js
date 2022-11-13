@@ -8,7 +8,6 @@ const LeftMenu = () => {
   const { md } = useBreakpoint();
   const { auth } = useContext(AuthContext);
 
-  console.log('auth', auth);
   const items = [
     {
       label: <Link to={'/'}>Home</Link>,

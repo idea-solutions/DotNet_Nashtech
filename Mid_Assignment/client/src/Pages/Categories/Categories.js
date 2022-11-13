@@ -57,8 +57,19 @@ const Categories = () => {
     },
   ].filter((column) => !column.hidden);
 
-  const onSearch = (value) => console.log(value);
+  const [searchValue, setSearchValue] = useState('');
+  const [pacientes, setPacientes] = useState('');
 
+  const onSearch = (value) => {
+    setSearchValue(value);
+  };
+
+  useEffect(() => {
+    const newPacientes = dataState.filter((value) => value.name.toLowerCase().includes(searchValue.toLowerCase()));
+    setPacientes(newPacientes);
+  }, [dataState, searchValue]);
+
+  console.log('dataState', dataState);
   const handleDelete = async (record) => {
     await deleteData(CATEGORY, record.id);
     getData();
@@ -152,7 +163,12 @@ const Categories = () => {
           <div className={styles.headerTable}>
             <h1>List Category</h1>
             <div className="d-flex">
-              <Input.Search placeholder="input search" allowClear onSearch={onSearch} className={styles.searchTable} />
+              <Input.Search
+                placeholder="search name category"
+                allowClear
+                onSearch={onSearch}
+                className={styles.searchTable}
+              />
               {auth?.role === 'SuperUser' && (
                 <Button type="primary" onClick={showModalAdd}>
                   Add
@@ -160,7 +176,7 @@ const Categories = () => {
               )}
             </div>
           </div>
-          <Table rowKey={(dataState) => dataState.id} columns={columns} dataSource={dataState} />
+          <Table rowKey={(dataState) => dataState.id} columns={columns} dataSource={pacientes} />
         </Space>
 
         <Modal

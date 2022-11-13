@@ -195,14 +195,14 @@ namespace LibraryManagement.Data.Migrations
                         new
                         {
                             Id = 1,
-                            DateRequested = new DateTime(2022, 11, 13, 10, 20, 54, 859, DateTimeKind.Local).AddTicks(117),
+                            DateRequested = new DateTime(2022, 11, 13, 22, 27, 14, 67, DateTimeKind.Local).AddTicks(2118),
                             RequestedByUserId = 2,
                             Status = 0
                         },
                         new
                         {
                             Id = 2,
-                            DateRequested = new DateTime(2022, 11, 13, 10, 20, 54, 859, DateTimeKind.Local).AddTicks(134),
+                            DateRequested = new DateTime(2022, 11, 13, 22, 27, 14, 67, DateTimeKind.Local).AddTicks(2128),
                             RequestedByUserId = 2,
                             Status = 1,
                             StatusUpdateByUserId = 1

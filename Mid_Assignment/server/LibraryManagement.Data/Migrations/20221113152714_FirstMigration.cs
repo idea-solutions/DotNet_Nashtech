@@ -166,8 +166,8 @@ namespace LibraryManagement.Data.Migrations
                 columns: new[] { "Id", "DateRequested", "DateUpdated", "RequestedByUserId", "Status", "StatusUpdateByUserId" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2022, 11, 13, 10, 20, 54, 859, DateTimeKind.Local).AddTicks(117), null, 2, 0, null },
-                    { 2, new DateTime(2022, 11, 13, 10, 20, 54, 859, DateTimeKind.Local).AddTicks(134), null, 2, 1, 1 }
+                    { 1, new DateTime(2022, 11, 13, 22, 27, 14, 67, DateTimeKind.Local).AddTicks(2118), null, 2, 0, null },
+                    { 2, new DateTime(2022, 11, 13, 22, 27, 14, 67, DateTimeKind.Local).AddTicks(2128), null, 2, 1, 1 }
                 });
 
             migrationBuilder.InsertData(
