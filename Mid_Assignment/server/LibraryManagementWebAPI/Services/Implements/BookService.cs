@@ -65,10 +65,9 @@ namespace LibraryManagementWebAPI.Services.Implements
 
         public async Task<IEnumerable<GetBookResponse>> GetAllAsync()
         {
+            var books = (await _bookRepository.GetAllIncludedAsync());
 
-            var data = (await _bookRepository.GetAllIncludedAsync());
-
-            return data.Select(book => new GetBookResponse
+            return books.Select(book => new GetBookResponse
             {
                 Id = book.Id,
                 Name = book.Name,

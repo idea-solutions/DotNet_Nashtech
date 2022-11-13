@@ -37,8 +37,6 @@ namespace LibraryManagementWebAPI.Models.DTOs.BookBorrowingRequest
         public string Status { get; set; }
         public GetUserResponse RequestedBy { get; set; }
         public DateTime DateRequested { get; set; }
-
-        //TODO : change name
         public GetUserResponse? StatusUpdateByUserId { get; set; }
         public List<BookModel> Books { get; set; }
     }

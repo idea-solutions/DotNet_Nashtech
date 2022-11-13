@@ -87,7 +87,7 @@ namespace LibraryManagementWebAPI.Controllers
 
                 if (result == null) return StatusCode(500, "Something went wrong while creating entity!");
 
-                return CreatedAtRoute(new { id = result.Id.ToString() }, result);
+                return Ok(result);
             }
             catch (Exception ex)
             {

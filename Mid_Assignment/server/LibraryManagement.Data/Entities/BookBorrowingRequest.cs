@@ -6,11 +6,6 @@ namespace LibraryManagement.Data.Entities
 {
     public class BookBorrowingRequest : BaseEntity<int>
     {
-        // public BookBorrowingRequest()
-        // {
-        //     RequestDetails = new List<BookBorrowingRequestDetails>();
-        // }
-
         [Required, DefaultValue(RequestStatusEnum.Waiting)]
         public RequestStatusEnum Status { get; set; }
         [Required]
@@ -20,7 +15,6 @@ namespace LibraryManagement.Data.Entities
         public int? StatusUpdateByUserId { get; set; }
         public virtual User? StatusUpdateBy { get; set; }
         public DateTime? DateUpdated { get; set; }
-        // public ICollection<BookBorrowingRequestDetails>? RequestDetails { get; set; }
         public ICollection<Book>? Books { get; set; }
     }
 }

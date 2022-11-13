@@ -7,11 +7,9 @@ namespace LibraryManagementWebAPI.Models.DTOs.BookBorrowingRequest
     {
         [Required]
         public int Id { get; set; }
-
         [Required]
         public bool IsApproved { get; set; }
-
-        [JsonIgnore] 
+        [JsonIgnore]
         public UserModel? StatusUpdateBy { get; set; }
 
     }

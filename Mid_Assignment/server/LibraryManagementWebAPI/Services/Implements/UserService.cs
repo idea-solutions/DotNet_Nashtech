@@ -24,7 +24,6 @@ namespace LibraryManagementWebAPI.Services.Implements
                 Id = user.Id,
                 Username = user.Username,
                 Role = user.Role.ToString(),
-                // Token = token
             };
         }
 

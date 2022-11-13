@@ -31,7 +31,6 @@ namespace LibraryManagementWebAPI.Models.DTOs.BookBorrowingRequest
                 Summary = book.Summary,
             }).ToList();
         }
-
         public int Id { get; set; }
         public string Status { get; set; }
         public GetUserResponse RequestedBy { get; set; }

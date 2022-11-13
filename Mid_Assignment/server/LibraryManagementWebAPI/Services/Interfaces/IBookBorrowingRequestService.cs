@@ -1,4 +1,3 @@
-using LibraryManagement.Data.Entities;
 using LibraryManagementWebAPI.Models.DTOs.BookBorrowingRequest;
 
 namespace LibraryManagementWebAPI.Services.Interfaces

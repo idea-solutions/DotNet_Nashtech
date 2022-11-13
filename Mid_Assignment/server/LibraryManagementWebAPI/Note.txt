@@ -5,7 +5,7 @@
 2. Open Package Manager Console
 
 3. Run migration:
-add-migration FirstMigration -context TestContext -o Migrations
+add-migration FirstMigration -context LibraryManagementContext -o Migrations
 
 4. Update migration:
 update-database

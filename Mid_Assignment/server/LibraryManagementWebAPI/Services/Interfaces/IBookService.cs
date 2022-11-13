@@ -1,4 +1,3 @@
-using LibraryManagementWebAPI.Models;
 using LibraryManagementWebAPI.Models.DTOs.Book;
 
 namespace LibraryManagementWebAPI.Services.Interfaces

@@ -50,8 +50,7 @@ namespace LibraryManagementWebAPI.Controllers
                 var token = new JwtSecurityToken(JwtConstant.Issuer,
                                                 JwtConstant.Audience,
                                                 claims, expires: expired,
-                                                signingCredentials: signIn
-                                                );
+                                                signingCredentials: signIn);
 
                 var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
 
