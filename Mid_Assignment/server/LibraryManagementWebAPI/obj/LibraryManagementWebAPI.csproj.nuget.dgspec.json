@@ -190,6 +190,10 @@
               "target": "Package",
               "version": "[6.0.10, )"
             },
+            "NLog.Extensions.Logging": {
+              "target": "Package",
+              "version": "[5.1.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"

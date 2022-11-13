@@ -15,57 +15,52 @@ namespace LibraryManagementWebAPI.Controllers
     public class AuthenticationController : ControllerBase
     {
         private readonly IUserService _userService;
+        private readonly ILoggerManager _logger;
 
-        public AuthenticationController(IUserService userService)
+        public AuthenticationController(IUserService userService, ILoggerManager logger)
         {
             _userService = userService;
+            _logger = logger;
         }
 
         [HttpPost]
         [AllowAnonymous]
         public async Task<IActionResult> Login([FromBody] CreateUserRequest requestModel)
         {
-            try
-            {
-                var user = await _userService.LoginUser(requestModel);
+            var user = await _userService.LoginUser(requestModel);
 
-                if (user == null)
-                    return BadRequest("Username or password is incorrect!");
+            if (user == null)
+                return BadRequest("Username or password is incorrect!");
 
-                var claims = new Claim[]
-                    {
+            var claims = new Claim[]
+                {
                         new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                         new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString()),
                         new Claim(ClaimTypes.Role, user.Role.ToString()),
                         new Claim("Id", user.Id.ToString()),
                         new Claim("Username", user.Username)
-                    };
+                };
 
-                var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JwtConstant.Key));
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JwtConstant.Key));
 
-                var signIn = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+            var signIn = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
-                var expired = DateTime.UtcNow.AddMinutes(JwtConstant.ExpiredTime);
+            var expired = DateTime.UtcNow.AddMinutes(JwtConstant.ExpiredTime);
 
-                var token = new JwtSecurityToken(JwtConstant.Issuer,
-                                                JwtConstant.Audience,
-                                                claims, expires: expired,
-                                                signingCredentials: signIn);
+            var token = new JwtSecurityToken(JwtConstant.Issuer,
+                                            JwtConstant.Audience,
+                                            claims, expires: expired,
+                                            signingCredentials: signIn);
 
-                var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
+            var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
 
-                return Ok(new CreateUserResponse
-                {
-                    Id = user.Id,
-                    Username = user.Username,
-                    Role = user.Role.ToString(),
-                    Token = tokenString
-                });
-            }
-            catch (Exception ex)
+            return Ok(new CreateUserResponse
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, ex);
-            }
+                Id = user.Id,
+                Username = user.Username,
+                Role = user.Role.ToString(),
+                Token = tokenString
+            });
         }
     }
 }

@@ -9,6 +9,7 @@ using LibraryManagementWebAPI.Services.Interfaces;
 using LibraryManagementWebAPI.Services.Implements;
 using Common.Jwt;
 using System.Text;
+using server.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -32,6 +33,7 @@ builder.Services.AddTransient<IBookService, BookService>();
 builder.Services.AddTransient<ICategoryService, CategoryService>();
 builder.Services.AddTransient<IBookBorrowingRequestService, BookBorrowingRequestService>();
 builder.Services.AddTransient<IUserService, UserService>();
+builder.Services.AddSingleton<ILoggerManager, LoggerManager>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -67,6 +69,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 );
 
 var app = builder.Build();
+
+var logger = app.Services.GetRequiredService<ILoggerManager>();
+app.ConfigureExceptionHandler(logger);
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

@@ -12,62 +12,43 @@ namespace LibraryManagementWebAPI.Controllers
     [Route("api/[controller]")]
     public class CategoryController : ControllerBase
     {
+        private readonly ILoggerManager _logger;
         private readonly ICategoryService _categoryService;
-        public CategoryController(ICategoryService categoryService)
+        public CategoryController(ICategoryService categoryService, ILoggerManager logger)
         {
             _categoryService = categoryService;
+            _logger = logger;
         }
 
         [HttpGet]
         [AuthorizeRoles(UserRoles.SuperUser, UserRoles.NormalUser)]
         public async Task<IActionResult> GetAllAsync()
         {
-            try
-            {
-                var entities = await _categoryService.GetAllAsync();
+            var entities = await _categoryService.GetAllAsync();
 
-                return new JsonResult(entities);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, ex);
-            }
+            return new JsonResult(entities);
         }
 
         [HttpGet("{id}", Name = "GetByCategoryIdAsync")]
         [AuthorizeRoles(UserRoles.SuperUser, UserRoles.NormalUser)]
         public async Task<IActionResult> GetByIdAsync(int id)
         {
-            try
-            {
-                var entity = await _categoryService.GetByIdAsync(id);
+            var entity = await _categoryService.GetByIdAsync(id);
 
-                if (entity == null) return NotFound();
+            if (entity == null) return NotFound();
 
-                return Ok(entity);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, ex);
-            }
+            return Ok(entity);
         }
 
         [HttpPost]
         [AuthorizeRoles(UserRoles.SuperUser)]
         public async Task<IActionResult> CreateAsync([FromBody] CreateCategoryRequest requestModel)
         {
-            try
-            {
-                var result = await _categoryService.CreateAsync(requestModel);
+            var result = await _categoryService.CreateAsync(requestModel);
 
-                if (result == null) return StatusCode(500, "Something went wrong while creating entity!");
+            if (result == null) return StatusCode(500, "Something went wrong while creating entity!");
 
-                return new JsonResult(result);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, ex);
-            }
+            return new JsonResult(result);
         }
 
         [HttpPut]
@@ -78,18 +59,11 @@ namespace LibraryManagementWebAPI.Controllers
 
             if (entity == null) return NotFound();
 
-            try
-            {
-                var result = await _categoryService.UpdateAsync(requestModel);
+            var result = await _categoryService.UpdateAsync(requestModel);
 
-                if (result == null) return StatusCode(500, "Something went wrong while updating entity!");
+            if (result == null) return StatusCode(500, "Something went wrong while updating entity!");
 
-                return new JsonResult(result);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, ex);
-            }
+            return new JsonResult(result);
         }
 
         [HttpDelete("{id}")]
@@ -100,20 +74,11 @@ namespace LibraryManagementWebAPI.Controllers
 
             if (entity == null) return NotFound();
 
-            try
-            {
-                var result = await _categoryService.DeleteAsync(id);
+            var result = await _categoryService.DeleteAsync(id);
 
-                if (!result) return StatusCode(500, "Something went wrong while delete entity!");
+            if (!result) return StatusCode(500, "Something went wrong while delete entity!");
 
-                return Ok();
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, ex);
-            }
+            return Ok();
         }
-
-
     }
 }

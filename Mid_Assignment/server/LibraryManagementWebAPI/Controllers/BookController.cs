@@ -13,62 +13,42 @@ namespace LibraryManagementWebAPI.Controllers
     public class BookController : Controller
     {
         private readonly IBookService _bookService;
-
-        public BookController(IBookService bookService)
+        private readonly ILoggerManager _logger;
+        public BookController(IBookService bookService, ILoggerManager logger)
         {
             _bookService = bookService;
+            _logger = logger;
         }
 
         [HttpGet]
         [AuthorizeRoles(UserRoles.SuperUser, UserRoles.NormalUser)]
         public async Task<IActionResult> GetAllAsync()
         {
-            try
-            {
-                var entities = await _bookService.GetAllAsync();
+            var entities = await _bookService.GetAllAsync();
 
-                return Ok(entities);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, ex);
-            }
+            return Ok(entities);
         }
 
         [HttpGet("{id}", Name = "GetByBookIdAsync")]
         [AuthorizeRoles(UserRoles.SuperUser, UserRoles.NormalUser)]
         public async Task<IActionResult> GetByIdAsync(int id)
         {
-            try
-            {
-                var entity = await _bookService.GetByIdAsync(id);
+            var entity = await _bookService.GetByIdAsync(id);
 
-                if (entity == null) return NotFound();
+            if (entity == null) return NotFound();
 
-                return Ok(entity);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, ex);
-            }
+            return Ok(entity);
         }
 
         [HttpPost]
         [AuthorizeRoles(UserRoles.SuperUser)]
         public async Task<IActionResult> CreateAsync([FromBody] CreateBookRequest requestModel)
         {
-            try
-            {
-                var result = await _bookService.CreateAsync(requestModel);
+            var result = await _bookService.CreateAsync(requestModel);
 
-                if (result == null) return StatusCode(500, "Something went wrong while creating entity!");
+            if (result == null) return StatusCode(500, "Something went wrong while creating entity!");
 
-                return CreatedAtRoute("Create", new { id = result.Id.ToString() }, result);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, ex);
-            }
+            return Ok(result);
         }
 
         [HttpPut]
@@ -80,18 +60,11 @@ namespace LibraryManagementWebAPI.Controllers
 
             if (entity == null) return NotFound();
 
-            try
-            {
-                var result = await _bookService.UpdateAsync(requestModel);
+            var result = await _bookService.UpdateAsync(requestModel);
 
-                if (result == null) return StatusCode(500, "Something went wrong while updating entity!");
+            if (result == null) return StatusCode(500, "Something went wrong while updating entity!");
 
-                return new JsonResult(result);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, ex);
-            }
+            return new JsonResult(result);
         }
 
         [HttpDelete("{id}")]
@@ -102,18 +75,11 @@ namespace LibraryManagementWebAPI.Controllers
 
             if (entity == null) return NotFound();
 
-            try
-            {
-                var result = await _bookService.DeleteAsync(id);
+            var result = await _bookService.DeleteAsync(id);
 
-                if (!result) return StatusCode(500, "Something went wrong while delete entity!");
+            if (!result) return StatusCode(500, "Something went wrong while delete entity!");
 
-                return Ok();
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, ex);
-            }
+            return Ok();
         }
     }
 }

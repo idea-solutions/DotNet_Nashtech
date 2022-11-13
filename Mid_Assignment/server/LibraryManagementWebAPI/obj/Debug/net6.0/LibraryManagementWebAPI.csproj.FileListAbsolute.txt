@@ -132,3 +132,5 @@ C:\CustomProject\TheRookies_Hoan\DotNet_Nashtech\Mid_Assignment\server\LibraryMa
 C:\CustomProject\TheRookies_Hoan\DotNet_Nashtech\Mid_Assignment\server\LibraryManagementWebAPI\obj\Debug\net6.0\LibraryManagementWebAPI.csproj.CopyComplete
 C:\CustomProject\TheRookies_Hoan\DotNet_Nashtech\Mid_Assignment\server\LibraryManagementWebAPI\obj\Debug\net6.0\LibraryManagementWebAPI.genruntimeconfig.cache
 C:\CustomProject\TheRookies_Hoan\DotNet_Nashtech\Mid_Assignment\server\LibraryManagementWebAPI\obj\Debug\net6.0\ref\LibraryManagementWebAPI.dll
+C:\CustomProject\TheRookies_Hoan\DotNet_Nashtech\Mid_Assignment\server\LibraryManagementWebAPI\bin\Debug\net6.0\NLog.dll
+C:\CustomProject\TheRookies_Hoan\DotNet_Nashtech\Mid_Assignment\server\LibraryManagementWebAPI\bin\Debug\net6.0\NLog.Extensions.Logging.dll

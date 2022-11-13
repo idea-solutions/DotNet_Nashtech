@@ -16,44 +16,32 @@ namespace LibraryManagementWebAPI.Controllers
     {
         private readonly IBookBorrowingRequestService _bookBorrowingRequestService;
         private readonly IUserService _userService;
-        public BookBorrowingRequestController(IBookBorrowingRequestService bookBorrowingRequestService, IUserService userService)
+        private readonly ILoggerManager _logger;
+        public BookBorrowingRequestController(IBookBorrowingRequestService bookBorrowingRequestService, IUserService userService, ILoggerManager logger)
         {
             _bookBorrowingRequestService = bookBorrowingRequestService;
             _userService = userService;
+            _logger = logger;
         }
 
         [HttpGet]
         [AuthorizeRoles(UserRoles.SuperUser, UserRoles.NormalUser)]
         public async Task<IActionResult> GetAllAsync()
         {
-            try
-            {
-                var result = await _bookBorrowingRequestService.GetAllAsync();
+            var result = await _bookBorrowingRequestService.GetAllAsync();
 
-                return Ok(result);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, ex);
-            }
+            return Ok(result);
         }
 
         [HttpGet("{id}")]
         [AuthorizeRoles(UserRoles.SuperUser, UserRoles.NormalUser)]
         public async Task<IActionResult> GetById(int id)
         {
-            try
-            {
-                var result = await _bookBorrowingRequestService.GetByIdAsync(id);
+            var result = await _bookBorrowingRequestService.GetByIdAsync(id);
 
-                if (result == null) return NotFound();
+            if (result == null) return NotFound();
 
-                return Ok(result);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, ex);
-            }
+            return Ok(result);
         }
 
         [HttpPost]
@@ -73,26 +61,19 @@ namespace LibraryManagementWebAPI.Controllers
                 Role = user.Role
             };
 
-            try
-            {
-                var limitCheckMessage =
+            var limitCheckMessage =
                     await _bookBorrowingRequestService.CheckRequestLimit(requestModel);
 
-                if (!string.IsNullOrEmpty(limitCheckMessage))
-                {
-                    return BadRequest(limitCheckMessage);
-                }
-
-                var result = await _bookBorrowingRequestService.CreateAsync(requestModel);
-
-                if (result == null) return StatusCode(500, "Something went wrong while creating entity!");
-
-                return Ok(result);
-            }
-            catch (Exception ex)
+            if (!string.IsNullOrEmpty(limitCheckMessage))
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, ex);
+                return BadRequest(limitCheckMessage);
             }
+
+            var result = await _bookBorrowingRequestService.CreateAsync(requestModel);
+
+            if (result == null) return StatusCode(500, "Something went wrong while creating entity!");
+
+            return Ok(result);
         }
 
         [HttpPost("Approve")]
@@ -117,18 +98,11 @@ namespace LibraryManagementWebAPI.Controllers
 
             if (entity == null) return NotFound();
 
-            try
-            {
-                var result = await _bookBorrowingRequestService.ApproveAsync(requestModel);
+            var result = await _bookBorrowingRequestService.ApproveAsync(requestModel);
 
-                if (result == null) return StatusCode(500, "Something went wrong while updating entity!");
+            if (result == null) return StatusCode(500, "Something went wrong while updating entity!");
 
-                return Ok(result);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, ex);
-            }
+            return Ok(result);
         }
     }
 }
