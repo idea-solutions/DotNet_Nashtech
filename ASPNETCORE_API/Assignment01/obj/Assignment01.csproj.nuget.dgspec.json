@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\ASPNETCORE_API\\Assignment01\\Assignment01.csproj": {}
+    "C:\\_\\DotNet_Nashtech\\ASPNETCORE_API\\Assignment01\\Assignment01.csproj": {}
   },
   "projects": {
-    "C:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\ASPNETCORE_API\\Assignment01\\Assignment01.csproj": {
+    "C:\\_\\DotNet_Nashtech\\ASPNETCORE_API\\Assignment01\\Assignment01.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\ASPNETCORE_API\\Assignment01\\Assignment01.csproj",
+        "projectUniqueName": "C:\\_\\DotNet_Nashtech\\ASPNETCORE_API\\Assignment01\\Assignment01.csproj",
         "projectName": "Assignment01",
-        "projectPath": "C:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\ASPNETCORE_API\\Assignment01\\Assignment01.csproj",
-        "packagesPath": "C:\\Users\\22nvh\\.nuget\\packages\\",
-        "outputPath": "C:\\CustomProject\\TheRookies_6\\DotNet_Nashtech\\ASPNETCORE_API\\Assignment01\\obj\\",
+        "projectPath": "C:\\_\\DotNet_Nashtech\\ASPNETCORE_API\\Assignment01\\Assignment01.csproj",
+        "packagesPath": "C:\\Users\\huynh\\.nuget\\packages\\",
+        "outputPath": "C:\\_\\DotNet_Nashtech\\ASPNETCORE_API\\Assignment01\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\22nvh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\huynh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -64,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
