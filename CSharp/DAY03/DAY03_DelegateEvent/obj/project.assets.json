@@ -8,24 +8,31 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\22nvh\\.nuget\\packages\\": {}
+    "C:\\Users\\huynh\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\CustomProject\\TheRookies_6\\Dotnet\\DAY03\\DAY03_DelegateEvent\\DAY03_DelegateEvent.csproj",
+      "projectUniqueName": "C:\\_\\DotNet_Nashtech\\CSharp\\DAY03\\DAY03_DelegateEvent\\DAY03_DelegateEvent.csproj",
       "projectName": "DAY03_DelegateEvent",
-      "projectPath": "C:\\CustomProject\\TheRookies_6\\Dotnet\\DAY03\\DAY03_DelegateEvent\\DAY03_DelegateEvent.csproj",
-      "packagesPath": "C:\\Users\\22nvh\\.nuget\\packages\\",
-      "outputPath": "C:\\CustomProject\\TheRookies_6\\Dotnet\\DAY03\\DAY03_DelegateEvent\\obj\\",
+      "projectPath": "C:\\_\\DotNet_Nashtech\\CSharp\\DAY03\\DAY03_DelegateEvent\\DAY03_DelegateEvent.csproj",
+      "packagesPath": "C:\\Users\\huynh\\.nuget\\packages\\",
+      "outputPath": "C:\\_\\DotNet_Nashtech\\CSharp\\DAY03\\DAY03_DelegateEvent\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\22nvh\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\huynh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -59,7 +66,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

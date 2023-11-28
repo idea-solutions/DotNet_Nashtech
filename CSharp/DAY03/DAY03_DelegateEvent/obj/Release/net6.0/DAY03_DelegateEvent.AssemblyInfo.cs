@@ -12,9 +12,9 @@ using System;
 using System.Reflection;
 
 [assembly: System.Reflection.AssemblyCompanyAttribute("DAY03_DelegateEvent")]
-[assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
+[assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3783c6f83d2bd39935b97e8aea36da69c5cf7978")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("DAY03_DelegateEvent")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DAY03_DelegateEvent")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
